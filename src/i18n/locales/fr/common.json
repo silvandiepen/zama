@@ -1,0 +1,219 @@
+{
+  "app": {
+    "title": "Gestion des clés API",
+    "apiKeysCardTitle": "Clés API",
+    "addKey": "Ajouter une clé"
+  },
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "docs": "Docs",
+    "about": "À propos"
+  },
+  "docsPage": {
+    "title": "Documentation",
+    "subtitle": "Guide complet de la Sandbox Console"
+  },
+  "docs": {
+    "nav": {
+      "overview": "Vue d’ensemble",
+      "architecture": "Architecture",
+      "styling": "Styles",
+      "components": "Composants",
+      "state-management": "Gestion d’état",
+      "data-services": "Services de données",
+      "development-tools": "Outils de développement",
+      "best-practices": "Bonnes pratiques",
+      "aria": "Navigation de la documentation"
+    },
+    "missing": "Contenu à venir."
+  },
+  "apiKeys": {
+    "description": "Gérez, créez et révoquez vos clés API pour différentes applications."
+  },
+  "usage": {
+    "title": "Utilisation",
+    "subtitle": "Volume de requêtes agrégé sur les 24 dernières heures",
+    "aggregate24h": "Utilisation (total 24h)"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "subtitle": "Gérez vos préférences et les options globales du compte"
+  },
+  "about": {
+    "tagline": "Développeur Full‑Stack & Ingénieur UI/UX",
+    "aboutCreator": "À propos du créateur",
+    "skillsTitle": "Compétences & Expertise",
+    "frontend": "Développement Frontend",
+    "backend": "Développement Backend",
+    "design": "Design & User Experience",
+    "projectTitle": "Ce projet",
+    "familyTitle": "Famille & Personnel",
+    "contactTitle": "Contact",
+    "intro1": "Bonjour ! Je suis Sil van Diepen, développeur full‑stack passionné avec une expertise dans les technologies web modernes et un sens aigu du design.",
+    "intro2": "Je crée des outils pour développeurs à la fois puissants et agréables à utiliser. Cette Sandbox Console illustre mon approche.",
+    "projectDesc": "La Sandbox Console présente des pratiques modernes et mon approche pour les outils destinés aux développeurs. Elle propose :",
+    "feature": {
+      "reactTs": "React 19 avec TypeScript pour la sûreté de typage",
+      "bemScss": "Méthodologie BEM avec SCSS pour des styles maintenables",
+      "components": "Architecture orientée composants",
+      "i18n": "Prise en charge de l’internationalisation",
+      "theme": "Bascule thème clair/sombre",
+      "mockData": "Services de données simulés et stockage local",
+      "charts": "Visualisation via graphiques",
+      "responsive": "Principes de design responsive"
+    },
+    "skill": {
+      "reactTs": "React & TypeScript",
+      "vueNuxt": "Vue.js & Nuxt.js",
+      "cssScss": "CSS moderne & SCSS",
+      "animation": "Animation",
+      "state": "Gestion d’état",
+      "components": "Bibliothèques de composants",
+      "nodeExpress": "Node.js & Express",
+      "restGraphql": "REST & GraphQL",
+      "dbDesign": "Conception de bases de données",
+      "api": "Développement d’API",
+      "cloud": "Services cloud",
+      "uiux": "Conception UI/UX",
+      "designSystems": "Design Systems",
+      "designTools": "Figma, Photoshop & Illustrator",
+      "icons": "Iconographie",
+      "responsive": "Design responsive",
+      "a11y": "Accessibilité",
+      "performance": "Optimisation des performances"
+    },
+    "familyAlt": "Famille de Sil",
+    "familyDesc1": "Au‑delà du code, je suis très attaché à la famille et au temps passé avec mes proches.",
+    "familyDesc2": "En dehors du travail, j’aime explorer les nouvelles technologies, la photographie et les design systems.",
+    "familyDesc3": "Passionné aussi de cuisine et de voyage.",
+    "contactDesc": "Je suis ouvert aux collaborations et aux nouvelles opportunités.",
+    "visitWebsite": "Visiter le site",
+    "github": "GitHub",
+    "email": "E‑mail",
+    "footer": "© 2025 Sil van Diepen.",
+    "tech": {
+      "react": "React 19",
+      "reactDesc": "Architecture moderne, fonctionnalités concurrentes et forte composition.",
+      "typescript": "TypeScript",
+      "typescriptDesc": "Composants typés, props plus strictes et refactors plus sûrs.",
+      "vite": "Vite",
+      "viteDesc": "Serveur de dev rapide, builds optimisées et tooling ESM.",
+      "i18n": "react‑i18next",
+      "i18nDesc": "Interface multilingue avec changement de langue à la volée.",
+      "charts": "Chart.js + react‑chartjs‑2",
+      "chartsDesc": "Graphiques d’utilisation avec styles responsives et sensibles au thème.",
+      "router": "React Router 7",
+      "routerDesc": "Routing client avec transitions et gestion des layouts.",
+      "eslint": "ESLint",
+      "eslintDesc": "Style de code cohérent et contrôles qualité.",
+      "sass": "Sass",
+      "sassDesc": "Design tokens, BEM et theming via variables CSS.",
+      "icons": "open‑icon",
+      "iconsDesc": "Icônes SVG légères chargées à la demande.",
+      "bemm": "bemm",
+      "bemmDesc": "Utilitaire pour les classes BEM et modifiers."
+    }
+  },
+  "menu": {
+    "title": "Menu",
+    "primaryAria": "Navigation principale",
+    "options": "Options",
+    "account": "Compte",
+    "settings": "Paramètres",
+    "logout": "Se déconnecter"
+  },
+  "dev": {
+    "title": "Outils de développement",
+    "theme": "Thème",
+    "themeDesc": "Aperçu du thème clair ou sombre pour valider le contraste, l’espacement et les états des composants.",
+    "featureFlags": "Drapeaux de fonctionnalités",
+    "featureFlagsDesc": "Activez des comportements UI optionnels pour simuler différentes configurations produit.",
+    "enableDescriptions": "Activer les descriptions",
+    "enableCopy": "Activer la copie",
+    "enableRevoke": "Activer la révocation",
+    "colorMode": "Mode couleur",
+    "language": "Langue",
+    "languageDesc": "Changer la langue de l’interface pour tester la couverture i18n et la mise en page."
+  },
+  "switch": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "en": "EN",
+    "nl": "NL",
+    "fr": "FR"
+  },
+  "lang": {
+    "english": "English",
+    "dutch": "Nederlands",
+    "french": "Français"
+  },
+  "form": {
+    "title": "Titre",
+    "description": "Description",
+    "descriptionHelp": "Brève note sur l’usage de cette clé.",
+    "accessRules": "Règles d’accès",
+    "disabled": "Désactivé",
+    "read": "Lecture",
+    "readwrite": "Lecture + Écriture",
+    "generate": "Générer une clé API",
+    "save": "Enregistrer les modifications",
+    "cancel": "Annuler",
+    "revokedCannotEdit": "Cette clé est révoquée et ne peut pas être modifiée."
+  },
+  "list": {
+    "loading": "Chargement des clés…",
+    "empty": "Aucune clé API pour l’instant.",
+    "created": "Créée :",
+    "revoked": "Révoquée :"
+  },
+  "btn": {
+    "show": "Afficher",
+    "hide": "Masquer",
+    "ok": "OK",
+    "copy": "Copier",
+    "revoke": "Révoquer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "back": "Retour",
+    "delete": "Supprimer",
+    "dismiss": "Fermer",
+    "showDev": "Afficher Dev",
+    "hideDev": "Masquer Dev"
+  },
+  "details": {
+    "usage": "Utilisation",
+    "requests": "Requêtes",
+    "errors": "Erreurs",
+    "last24h": "Dernières 24 heures",
+    "last14days": "Derniers 14 jours",
+    "readAccess": "Accès lecture",
+    "writeAccess": "Accès écriture"
+  },
+  "modal": {
+    "deleteTitle": "Supprimer la clé API",
+    "deleteConfirm": "Voulez‑vous vraiment supprimer « {{title}} » ? Cette action est irréversible.",
+    "createTitle": "Créer une clé API",
+    "editTitle": "Modifier la clé API",
+    "revokeTitle": "Révoquer la clé API",
+    "revokeConfirm": "Voulez‑vous vraiment révoquer « {{title}} » ? Cette action est irréversible."
+  },
+  "dashboard": {
+    "recentKeys": {
+      "more": "({{count}} de plus)"
+    }
+  },
+  "toast": {
+    "missingTitleTitle": "Titre manquant",
+    "missingTitleMsg": "Veuillez saisir un titre avant de générer une clé API.",
+    "createdTitle": "Clé API créée",
+    "createdMsg": "La clé pour « {{title}} » a été générée.",
+    "updatedTitle": "Clé API mise à jour",
+    "updatedMsg": "Règles enregistrées pour « {{title}} ».",
+    "copiedTitle": "Copié",
+    "copiedMsg": "Clé API copiée dans le presse‑papiers.",
+    "revokedTitle": "Clé révoquée",
+    "revokedMsg": "« {{title}} » est maintenant révoquée.",
+    "deletedTitle": "Clé supprimée",
+    "deletedMsg": "« {{title}} » a été supprimée."
+  }
+}

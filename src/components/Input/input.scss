@@ -1,0 +1,112 @@
+.field {
+  display: flex;
+  gap: var(--space);
+
+  &__label-container {
+    width: clamp(80px, 50%, 200px);
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: var(--font-size-s);
+  }
+
+  &__control {
+    width: 100%;
+    display: block;
+  }
+
+  &__help {
+    font-size: var(--font-size-s);
+    opacity: .7;
+  }
+
+  &__error {
+    color: var(--color-error);
+    font-size: var(--font-size-s);
+  }
+
+  &+.field {
+    margin-top: 1em;
+  }
+}
+
+.input,
+.textarea {
+  width: clamp(100px, 100%, 320px);
+  padding: var(--space-s);
+  font-family: inherit;
+  font-size: 1em;
+  border: none;
+  box-shadow: 0 0 1px 1px color-mix(in srgb, var(--color-foreground), transparent 50%);
+  background: color-mix(in srgb, var(--color-foreground), transparent 95%);
+  color: var(--color-foreground);
+  border-radius: var(--border-radius-s);
+
+  &:focus,
+  &:focus-within {
+    box-shadow: 0 0 1px 1px color-mix(in srgb, var(--color-primary), transparent 50%);
+  }
+}
+
+.checkbox {
+  &__input {
+    display: none;
+  }
+
+  &__visual {
+    width: 2.2em;
+    height: 1.2em;
+    border-radius: 999px;
+    background: rgba(var(--color-dark-rgb), .2);
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    transition: background .2s var(--bezier);
+  }
+
+  &__visual::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: .9em;
+    height: .9em;
+    border-radius: 50%;
+    background: var(--color-light);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+    transition: transform .2s var(--bezier);
+  }
+
+  &__input:checked+.checkbox__visual {
+    background: var(--color-primary);
+  }
+
+  &__input:checked+.checkbox__visual::after {
+    transform: translateX(1em);
+  }
+}
+
+.switch {
+  display: inline-flex;
+  background: rgba(var(--color-dark-rgb), .08);
+  border-radius: var(--border-radius-s);
+  padding: 2px;
+
+  &__btn {
+    border: 0;
+    background: transparent;
+    padding: .4em .6em;
+    border-radius: var(--border-radius-s);
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  &__btn--active {
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+  }
+}

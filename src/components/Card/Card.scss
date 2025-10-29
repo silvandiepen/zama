@@ -1,0 +1,248 @@
+.card {
+  --card-border-width: 1px;
+  --card-radius: var(--border-radius-s);
+  --card-overflow: visible;
+  --card-color: var(--color-primary);
+
+  border-radius: var(--card-radius);
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: var(--card-overflow);
+  display: flex;
+  flex-direction: column;
+
+  &--has-color {
+    --card-background-color: color-mix(in srgb, var(--card-color), transparent 90%);
+    --card-text-color: color-mix(in srgb, var(--card-color), transparent 0%);
+  }
+
+  &--hoverable {
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(calc(var(--space-s) * -1.25));
+      box-shadow: 0 8px 40px color-mix(in srgb, var(--color-foreground), transparent 88%);
+    }
+  }
+
+  &--featured {
+    border-color: var(--color-primary);
+    border-width: 2px;
+  }
+
+  &--has-color {
+    --card-background-color: color-mix(in srgb, var(--card-color), var(--color-background) 75%);
+  }
+
+  &[data-variant="elevated"] {
+    box-shadow: 0 4px 20px color-mix(in srgb, var(--color-foreground), transparent 95%);
+  }
+
+  &[data-variant="ghost"] {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  &__container {
+    --bg-color-dark: color-mix(in srgb, var(--card-color), transparent 95%);
+    --bg-color-light: color-mix(in srgb, var(--card-color), transparent 80%);
+
+    --color-1: var(--bg-color-dark);
+    --color-2: var(--bg-color-light);
+
+    [color-mode="light"] & {
+      --color-1: var(--bg-color-light);
+      --color-2: var(--bg-color-dark);
+    }
+
+    border-radius: var(--card-radius);
+    background-image: radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), var(--color-2), var(--color-1));
+    backdrop-filter: blur(5px);
+    color: var(--color-foreground, var(--color-text-primary));
+    border-radius: calc(var(--card-radius) - var(--card-border-width));
+    height: 100%;
+  }
+
+  // When card has no padding, apply default padding to children
+  &--no-padding {
+    padding: 0;
+
+    .card__content {
+      padding: var(--space-m);
+    }
+  }
+
+  // Content wrapper - always has padding unless explicitly removed
+  &__content {
+    flex: 1;
+    padding: var(--card-padding, var(--space-m));
+
+    &--no-padding {
+      padding: 0;
+    }
+  }
+
+  // Header styles
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-m);
+    padding: var(--space) var(--space-m);
+    border-bottom: 1px solid var(--card-border-color, var(--color-border-primary));
+
+    &--no-padding {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: var(--font-size);
+    font-weight: 600;
+    color: var(--card-title-color, var(--color-text-primary));
+    flex: 1;
+  }
+
+  // Footer styles
+  &__footer {
+    display: flex;
+    align-items: center;
+    padding: var(--space-l) var(--space-m);
+    border-top: 1px solid var(--card-border-color, var(--color-border-primary));
+
+    &--no-padding {
+      padding: 0;
+    }
+  }
+
+  // Adjustments when header/footer are present
+  &--has-header {
+    .card__content {
+      padding-top: var(--space-m);
+    }
+
+    &.card--no-padding .card__content {
+      padding-top: var(--space-m);
+    }
+  }
+
+  &--has-footer {
+    .card__content {
+      padding-bottom: var(--space-m);
+    }
+
+    &.card--no-padding .card__content {
+      padding-bottom: var(--space-m);
+    }
+  }
+
+  // Both header and footer
+  &--has-header.card--has-footer {
+    .card__content {
+      padding: var(--space-m);
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 100%;
+    height: 100%;
+    border: var(--card-border-width) solid transparent;
+    border-radius: inherit;
+    display: block;
+    background: conic-gradient(from var(--pointer-angle, 45deg) at center in oklch,
+        transparent 0%,
+        var(--card-color),
+        color-mix(in oklch, var(--card-color), var(--color-light) 80%),
+        var(--card-color),
+        transparent 50%) border-box;
+
+    /* ring thickness drives the hole */
+    border: 1px solid transparent;
+    pointer-events: none;
+
+    /* Chrome/Firefox */
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      /* keep */
+      linear-gradient(#000 0 0);
+    /* cut */
+    mask-composite: exclude;
+
+    /* Safari/WebKit */
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+  }
+
+  &__glow {
+    --radius: var(--card-radius);
+    pointer-events: none;
+    border-radius: calc(var(--radius) * 2.5);
+    border: calc(var(--radius) * 1.25) solid transparent;
+    inset: calc(var(--radius) * -2);
+    width: calc(100% + (var(--radius) * 4));
+    height: calc(100% + (var(--radius) * 4));
+    display: block;
+    position: absolute;
+    left: auto;
+    bottom: auto;
+    mask: url('https://assets.codepen.io/13471/noise-base.png');
+    mask-mode: luminance;
+    mask-size: 29%;
+    opacity: 0;
+    filter: blur(12px) saturate(1.25) brightness(0.5);
+    mix-blend-mode: plus-lighter;
+    z-index: 3;
+    transition: opacity 0.3s ease;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: inherit;
+      border-radius: inherit;
+      background: conic-gradient(from var(--pointer-angle, 45deg) at center in oklch,
+          transparent var(--start, 0%), color-mix(in oklch, var(--card-color), var(--color-light) 50%), transparent var(--end, 50%)) border-box;
+      mask:
+        linear-gradient(transparent),
+        linear-gradient(black);
+      mask-repeat: no-repeat;
+      mask-clip: padding-box, border-box;
+      mask-composite: subtract;
+      filter: saturate(2) brightness(1);
+    }
+
+    &::after {
+      --lit: 70%;
+      --sat: 100%;
+      --start: 15%;
+      --end: 35%;
+      border-width: calc(var(--radius) * 1.75);
+      border-radius: calc(var(--radius) * 2.75);
+      inset: calc(var(--radius) * -0.25);
+      z-index: 4;
+      opacity: 1;
+    }
+  }
+
+  // Show glow on hover for hoverable cards
+  &--hoverable:hover &__glow {
+    opacity: 1;
+  }
+
+  // Show glow for featured cards
+  &--featured &__glow {
+    opacity: 0.7;
+  }
+
+  &--featured:hover &__glow {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,153 @@
+.navmenu {
+  $b: &;
+
+  --gap: var(--nav-menu-gap, 0);
+  --pad: var(--nav-menu-padding, var(--space-s));
+
+  position: relative;
+  display: flex;
+  gap: var(--gap);
+  padding: var(--pad);
+  border-radius: var(--border-radius-s);
+  anchor-scope: --active-anchor, --hover-anchor;
+
+  &--vertical {
+    flex-direction: column;
+  }
+
+  &--horizontal {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__item {
+    appearance: none;
+    background: none;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    padding: var(--space-s) var(--space-m);
+    border-radius: var(--border-radius-s);
+    text-align: left;
+    font: inherit;
+    position: relative;
+    z-index: 1;
+    opacity: .9;
+    transition: color .15s ease, opacity .15s ease;
+
+    &:hover {
+      opacity: 1;
+      anchor-name: --hover-anchor;
+    }
+
+    &--active {
+      opacity: 1;
+      anchor-name: --active-anchor;
+      color: var(--color-primary-text);
+
+      &:hover {
+        color: var(--color-secondary-text);
+      }
+    }
+  }
+
+  /* Highlights (active + hover), positioned by anchors */
+  &__highlight {
+    position: absolute;
+    z-index: 0;
+    border-radius: var(--border-radius-s);
+    transition: all .2s var(--bezier);
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  /* Vertical layout: full width bars following items */
+  &--vertical {
+    #{$b}__highlight {
+
+      &--active,
+      &--hover {
+        opacity: 1;
+        left: var(--pad);
+        right: var(--pad);
+      }
+
+      &--active {
+        top: anchor(--active-anchor top);
+        height: anchor-size(--active-anchor height);
+        background: color-mix(in srgb, var(--color-primary), transparent 0%);
+        color: var(--color-secondary-text);
+      }
+
+      &--hover {
+        top: anchor(--hover-anchor top);
+        height: anchor-size(--hover-anchor height);
+        background: color-mix(in srgb, var(--color-secondary), transparent 65%);
+      }
+    }
+
+    #{$b}:has(#{$b}__item:hover) #{$b}__highlight--hover {
+      opacity: 1;
+    }
+  }
+
+  /* Horizontal layout: pill sliding behind links */
+  &--horizontal {
+    #{$b}__highlight {
+
+      &--active,
+      &--hover {
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: var(--border-radius-xl);
+        opacity: 1;
+      }
+
+      &--active {
+        left: anchor(--active-anchor left);
+        width: anchor-size(--active-anchor width);
+        height: anchor-size(--active-anchor height);
+        background: color-mix(in srgb, var(--color-primary), transparent 0%);
+        color: var(--color-secondary-text);
+      }
+
+      &--hover {
+        left: anchor(--hover-anchor left);
+        width: anchor-size(--hover-anchor width);
+        height: anchor-size(--active-anchor height);
+        background: color-mix(in srgb, var(--color-secondary), transparent 75%);
+      }
+    }
+
+    #{$b}:has(.navmenu__item:hover) &__highlight--hover {
+      opacity: 1;
+    }
+  }
+}
+
+@supports not (top: anchor(--a top)) {
+  .navmenu {
+    position: relative;
+  }
+
+  .navmenu__highlight {
+    position: absolute;
+    z-index: 0;
+    border-radius: var(--border-radius-s);
+    transition: all .2s var(--bezier);
+    pointer-events: none;
+    opacity: var(--h-opacity, 0);
+    /* driven by JS */
+    top: var(--h-top, 0);
+    left: var(--h-left, 0);
+    width: var(--h-width, 0);
+    height: var(--h-height, 0);
+  }
+
+  /* keep your vertical/horizontal styling (colors, radii) as-is */
+  .navmenu--horizontal .navmenu__highlight {
+    border-radius: var(--border-radius-xl);
+    transform: translateY(-50%);
+  }
+}

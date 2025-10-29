@@ -22,7 +22,10 @@
       "Bash(npm test)",
       "Bash(npm test:*)",
       "Bash(node:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(find:*)",
+      "Bash(npm uninstall:*)"
     ],
     "deny": []
   }

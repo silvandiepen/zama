@@ -29,17 +29,12 @@ export const Markdown: React.FC<Props> = ({ source, className }) => {
     // Add copy buttons to code blocks with delay to ensure polyfills are loaded
     const addCopyButtons = () => {
       const blocks = root.querySelectorAll("pre > code");
-      console.log(`Found ${blocks.length} code blocks`);
       
-      blocks.forEach((code, index) => {
+      blocks.forEach((code) => {
         const pre = code.parentElement as HTMLElement;
         if (!pre) return;
-        if (pre.querySelector(".md-copy")) {
-          console.log(`Copy button already exists for block ${index}`);
-          return;
-        }
+        if (pre.querySelector(".md-copy")) return;
         
-        console.log(`Adding copy button to block ${index}`);
         const btn = document.createElement("button");
         btn.textContent = "Copy";
         btn.className = "md-copy";

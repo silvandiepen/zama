@@ -1,60 +1,48 @@
 import React from 'react';
-import { Bar } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useThemeColors } from './useThemeColors';
-import { chartAreaBackground } from './chartAreaPlugin';
-
-ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 type Props = { data: number[] };
 
 export const Bar24h: React.FC<Props> = ({ data }) => {
   const { info, grid, text } = useThemeColors();
-  const labels = Array.from({ length: 24 }, (_, i) => `${i}:00`);
-  const ds = labels.map((_, i) => data[i] ?? 0);
+  
+  const chartData = Array.from({ length: 24 }, (_, i) => ({
+    hour: `${i}:00`,
+    requests: data[i] ?? 0,
+  }));
+
   return (
-    <Bar
-      data={{
-        labels,
-        datasets: [
-          {
-            label: 'Requests',
-            data: ds,
-            backgroundColor: info + 'cc',
-            borderRadius: 6,
-            borderSkipped: false as any,
-          },
-        ],
-      }}
-      options={{
-        responsive: true,
-        maintainAspectRatio: false,
-        resizeDelay: 150,
-        devicePixelRatio: 1,
-        normalized: true,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { grid: { color: grid }, ticks: { color: text }, stacked: false },
-          y: { grid: { color: grid }, ticks: { color: text }, beginAtZero: true },
-        },
-        layout: { padding: 4 },
-        datasets: {
-          bar: {
-            maxBarThickness: 18,
-            barPercentage: 0.8,
-            categoryPercentage: 0.8,
-          }
-        }
-      }}
-      height={220}
-      plugins={[chartAreaBackground]}
-    />
+    <ResponsiveContainer width="100%" height={220}>
+      <BarChart data={chartData} margin={{ top: 4, right: 4, bottom: 4, left: 4 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke={grid} />
+        <XAxis 
+          dataKey="hour" 
+          stroke={text}
+          tick={{ fontSize: 12 }}
+          interval={2}
+        />
+        <YAxis 
+          stroke={text}
+          tick={{ fontSize: 12 }}
+        />
+        <Tooltip 
+          contentStyle={{ 
+            backgroundColor: 'var(--color-surface-secondary)',
+            border: '1px solid var(--color-border-primary)',
+            borderRadius: 'var(--border-radius-s)',
+            color: 'var(--color-foreground)'
+          }}
+          labelStyle={{ color: 'var(--color-foreground)' }}
+        />
+        <Bar 
+          dataKey="requests" 
+          fill={info}
+          fillOpacity={0.8}
+          radius={[6, 6, 0, 0]}
+          maxBarSize={18}
+        />
+      </BarChart>
+    </ResponsiveContainer>
   );
 };

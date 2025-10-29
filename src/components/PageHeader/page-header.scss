@@ -1,0 +1,96 @@
+.page-header {
+  position: relative;
+  background: color-mix(in srgb, var(--color-foreground), transparent 94%);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-foreground), transparent 90%);
+
+  padding: var(--spacing);
+  padding-top: clamp(120px, calc(var(--spacing) * 2), 240px);
+
+  display: flex;
+align-items: center;
+
+  @media screen and (min-width: 720px){
+    padding-left: calc(20vw);
+  }
+
+  &__bg {      position: relative;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    pointer-events: none;
+    background-size: contain;
+    aspect-ratio: 1/1;
+    width: 20vw;
+    height: 20vw;
+
+
+    @keyframes popInImage {
+      from {
+        transform: scale(0.5) translateY(50%);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1) translateY(25%);
+        opacity: 1;
+      }
+    }
+
+    @media screen and (min-width: 720px){
+      transform: translateY(50%);
+      bottom: 0;
+      left: 0;
+      position: absolute;
+  animation: popInImage .3s ease-in-out forwards;
+
+    }
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: var(--space);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-s);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+    object-fit: cover;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  }
+
+  &__description {
+    opacity: .75;
+    max-width: 70ch;
+  }
+
+  &__actions {
+    display: inline-flex;
+    gap: .5rem;
+    align-items: center;
+  }
+
+  @media (max-width: 720px) {
+    &__inner {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+
+    &__actions {
+      justify-self: start;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.mobile-menu {
+  &__content { display: grid; gap: var(--space); }
+  &__nav { display: grid; gap: .5rem; padding: 0 var(--space-s); }
+  &__nav-link { display: block; padding: .75rem 1rem; border-radius: var(--border-radius-s); color: inherit; text-decoration: none; background: color-mix(in srgb, var(--color-foreground), transparent 95%); }
+  &__nav-link:hover { background: color-mix(in srgb, var(--color-foreground), transparent 90%); }
+  &__section { padding: 0 var(--space-s); display: grid; gap: var(--space-s); }
+  &__section-title { font-weight: 700; opacity: .85; }
+  &__options { display: inline-flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+}

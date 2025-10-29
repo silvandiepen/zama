@@ -1,0 +1,288 @@
+.usage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  padding: var(--space) 0;
+  min-height: 100vh;
+
+  &__container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space);
+    display: grid;
+    gap: var(--space-l);
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+
+    &--title {
+      font-size: var(--font-size-xxl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-s);
+    }
+
+    &--subtitle {
+      font-size: var(--font-size-l);
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    &--image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      margin: var(--space-l) auto;
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 8px 32px color-mix(in srgb, var(--color-foreground), transparent 90%);
+    }
+  }
+
+  &__stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-l);
+    margin-bottom: var(--space-xl);
+  }
+
+  &__stat-card {
+    background: color-mix(in srgb, var(--color-surface-primary), var(--color-background) 50%);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-l);
+    text-align: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px color-mix(in srgb, var(--color-foreground), transparent 85%);
+    }
+  }
+
+  &__stat-value {
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--space-s);
+  }
+
+  &__stat-label {
+    font-size: var(--font-size-m);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+  }
+
+  &__charts-section {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  // Removed extra container styling to avoid double-card effect
+  &__chart-container { padding: 0; background: transparent; border: 0; box-shadow: none; }
+
+  &__chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-m);
+    padding-bottom: var(--space-s);
+    border-bottom: 1px solid var(--color-border-primary);
+  }
+
+  &__chart-title {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+  }
+
+  &__chart-subtitle {
+    font-size: var(--font-size-s);
+    color: var(--color-text-secondary);
+  }
+
+  &__chart-content {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 100% !important;
+      display: block;
+    }
+  }
+
+  &__period-selector {
+    display: flex;
+    gap: var(--space-s);
+    background: color-mix(in srgb, var(--color-background), var(--color-foreground) 5%);
+    border-radius: var(--border-radius-s);
+    padding: var(--space-xs);
+  }
+
+  &__period-button {
+    padding: var(--space-s) var(--space-m);
+    border: none;
+    background: transparent;
+    border-radius: var(--border-radius-s);
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-foreground), transparent 90%);
+    }
+
+    &--active {
+      background: var(--color-primary);
+      color: var(--color-primary-text);
+    }
+  }
+
+  &__key-list {
+    display: grid;
+    gap: var(--space-m);
+  }
+
+  &__key-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-m);
+    background: var(--color-surface-primary);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--border-radius-s);
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-foreground), transparent 95%);
+      transform: translateX(4px);
+    }
+  }
+
+  &__key-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  &__key-name {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+  }
+
+  &__key-requests {
+    font-size: var(--font-size-s);
+    color: var(--color-text-secondary);
+  }
+
+  &__key-stats {
+    display: flex;
+    gap: var(--space-m);
+    align-items: center;
+  }
+
+  &__key-chart {
+    width: 60px;
+    height: 30px;
+    border-radius: var(--border-radius-s);
+    background: color-mix(in srgb, var(--color-primary), transparent 90%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__key-number {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+  }
+
+  // Responsive design
+  @media (max-width: 1024px) {
+    &__stats-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-m);
+    }
+
+    &__chart-content {
+      height: 250px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: var(--space-s) 0;
+
+    &__container {
+      padding: 0 var(--space-s);
+      gap: var(--space-m);
+    }
+
+    &__header {
+      margin-bottom: var(--space-l);
+
+      &--title {
+        font-size: var(--font-size-xl);
+      }
+
+      &--subtitle {
+        font-size: var(--font-size-m);
+      }
+
+      &--image {
+        max-width: 300px;
+        margin: var(--space-m) auto;
+      }
+    }
+
+    &__stats-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-s);
+    }
+
+    &__chart-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-s);
+    }
+
+    &__chart-content {
+      height: 200px;
+    }
+
+    &__key-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-s);
+    }
+
+    &__key-stats {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__stat-card {
+      padding: var(--space-m);
+    }
+
+    &__chart-container {
+      padding: var(--space-m);
+    }
+
+    &__period-selector {
+      flex-wrap: wrap;
+    }
+
+    &__chart-content {
+      height: 180px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(mv:*)",
+      "Bash(true:*)",
+      "Bash(rmdir:*)",
+      "Bash(npm install:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:bemm.sil.mt)",
+      "Bash(npm test:run)",
+      "Bash(npm run test:run:*)",
+      "Bash(rm:*)",
+      "Bash(npm run build:*)",
+      "Bash(rg:*)",
+      "Bash(grep:*)",
+      "Bash(npx tsc:*)",
+      "Bash(rg:*)",
+      "Bash(find:*)",
+      "Bash(find:*)",
+      "Bash(npm test)",
+      "Bash(npm test:*)",
+      "Bash(node:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}

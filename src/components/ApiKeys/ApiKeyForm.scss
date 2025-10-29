@@ -1,0 +1,46 @@
+.apikey-form {
+  display: grid;
+  gap: var(--space);
+
+  &__section {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  &__section-title {
+    font-weight: 700;
+    margin: 0;
+  }
+
+  &__resources {
+    display: grid;
+    gap: var(--space);
+  }
+
+  &__resource {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space);
+  }
+
+  &__resource-info {
+    display: grid;
+    gap: var(--space-xxs, calc(var(--space)/4));
+  }
+
+  &__resource-title {
+    font-weight: 600;
+  }
+
+  &__resource-desc {
+    opacity: .8;
+    font-size: var(--font-size);
+  }
+
+  &__actions {
+    display: inline-flex;
+    gap: var(--space-xs);
+    justify-content: flex-end;
+  }
+}

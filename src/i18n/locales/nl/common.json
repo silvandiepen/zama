@@ -1,0 +1,219 @@
+{
+  "app": {
+    "title": "API-sleutelbeheer",
+    "apiKeysCardTitle": "API-sleutels",
+    "addKey": "Sleutel toevoegen"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "docs": "Docs",
+    "about": "Over"
+  },
+  "docsPage": {
+    "title": "Documentatie",
+    "subtitle": "Uitgebreide gids voor de Sandbox Console"
+  },
+  "docs": {
+    "nav": {
+      "overview": "Overzicht",
+      "architecture": "Architectuur",
+      "styling": "Styling",
+      "components": "Componenten",
+      "state-management": "State‑beheer",
+      "data-services": "Dataservices",
+      "development-tools": "Ontwikkeltools",
+      "best-practices": "Best practices",
+      "aria": "Documentatie‑navigatie"
+    },
+    "missing": "Inhoud volgt binnenkort."
+  },
+  "apiKeys": {
+    "description": "Beheer, maak en trek API‑sleutels in voor verschillende applicaties."
+  },
+  "usage": {
+    "title": "Gebruik",
+    "subtitle": "Geaggregeerd aantal verzoeken over de laatste 24 uur",
+    "aggregate24h": "Gebruik (totaal 24u)"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "subtitle": "Beheer je voorkeuren en account‑brede opties"
+  },
+  "about": {
+    "tagline": "Full‑stack ontwikkelaar & UI/UX‑engineer",
+    "aboutCreator": "Over de maker",
+    "skillsTitle": "Vaardigheden & Expertise",
+    "frontend": "Frontend‑ontwikkeling",
+    "backend": "Backend‑ontwikkeling",
+    "design": "Design & User Experience",
+    "projectTitle": "Dit project",
+    "familyTitle": "Familie & Persoonlijk",
+    "contactTitle": "Contact",
+    "intro1": "Hallo! Ik ben Sil van Diepen, een gepassioneerde full‑stack ontwikkelaar met expertise in moderne webtechnologieën en een scherp oog voor design.",
+    "intro2": "Ik bouw developer‑tools die zowel krachtig als prettig in gebruik zijn. Deze Sandbox Console demonstreert mijn aanpak.",
+    "projectDesc": "De Sandbox Console toont moderne webpraktijken en mijn aanpak voor tools voor ontwikkelaars. Het bevat:",
+    "feature": {
+      "reactTs": "React 19 met TypeScript voor type‑veiligheid",
+      "bemScss": "BEM‑methodologie met SCSS voor onderhoudbare stijlen",
+      "components": "Component‑gedreven architectuur",
+      "i18n": "Ondersteuning voor internationalisatie",
+      "theme": "Licht/donker thema‑switch",
+      "mockData": "Mock‑dataservices en local storage",
+      "charts": "Grafieken voor analytics",
+      "responsive": "Responsieve ontwerpprincipes"
+    },
+    "skill": {
+      "reactTs": "React & TypeScript",
+      "vueNuxt": "Vue.js & Nuxt.js",
+      "cssScss": "Moderne CSS & SCSS",
+      "animation": "Animatie",
+      "state": "State‑beheer",
+      "components": "Component‑bibliotheken",
+      "nodeExpress": "Node.js & Express",
+      "restGraphql": "REST & GraphQL",
+      "dbDesign": "Database‑ontwerp",
+      "api": "API‑ontwikkeling",
+      "cloud": "Cloud‑diensten",
+      "uiux": "UI/UX‑ontwerp",
+      "designSystems": "Design Systems",
+      "designTools": "Figma, Photoshop & Illustrator",
+      "icons": "Iconografie",
+      "responsive": "Responsief ontwerp",
+      "a11y": "Toegankelijkheid",
+      "performance": "Prestatieoptimalisatie"
+    },
+    "familyAlt": "Familie van Sil",
+    "familyDesc1": "Naast code ben ik familiegericht en waardeer ik tijd met dierbaren.",
+    "familyDesc2": "Buiten werk verken ik graag nieuwe tech, fotografie en design systems.",
+    "familyDesc3": "Ook gek op koken en reizen.",
+    "contactDesc": "Ik sta open voor samenwerking aan leuke projecten of nieuwe kansen.",
+    "visitWebsite": "Bezoek website",
+    "github": "GitHub",
+    "email": "E‑mail",
+    "footer": "© 2025 Sil van Diepen.",
+    "tech": {
+      "react": "React 19",
+      "reactDesc": "Moderne architectuur, concurrent features en sterke compositie‑patronen.",
+      "typescript": "TypeScript",
+      "typescriptDesc": "Getypte componenten, striktere props en veiligere refactors.",
+      "vite": "Vite",
+      "viteDesc": "Snelle dev server, geoptimaliseerde builds en moderne ESM tooling.",
+      "i18n": "react‑i18next",
+      "i18nDesc": "Meertalige UI met runtime taalwissel.",
+      "charts": "Chart.js + react‑chartjs‑2",
+      "chartsDesc": "Gebruiksgrafieken met responsieve, thema‑bewuste styling.",
+      "router": "React Router 7",
+      "routerDesc": "Client‑side routing met transities en layout‑handling.",
+      "eslint": "ESLint",
+      "eslintDesc": "Consistente code‑stijl en kwaliteitscontroles.",
+      "sass": "Sass",
+      "sassDesc": "Design tokens, BEM en theming met CSS custom properties.",
+      "icons": "open‑icon",
+      "iconsDesc": "Lichte SVG‑iconen on‑demand geladen.",
+      "bemm": "bemm",
+      "bemmDesc": "Hulpmiddel voor BEM‑classnamen en modifiers."
+    }
+  },
+  "menu": {
+    "title": "Menu",
+    "primaryAria": "Primaire navigatie",
+    "options": "Opties",
+    "account": "Account",
+    "settings": "Instellingen",
+    "logout": "Uitloggen"
+  },
+  "dev": {
+    "title": "Ontwikkelhulpmiddelen",
+    "theme": "Thema",
+    "themeDesc": "Bekijk licht of donker thema om contrast, spacing en component‑staten te valideren.",
+    "featureFlags": "Functievlaggen",
+    "featureFlagsDesc": "Schakel optionele UI‑gedragingen in om verschillende configuraties te simuleren.",
+    "enableDescriptions": "Omschrijvingen inschakelen",
+    "enableCopy": "Kopiëren inschakelen",
+    "enableRevoke": "Intrekken inschakelen",
+    "colorMode": "Kleurmodus",
+    "language": "Taal",
+    "languageDesc": "Wissel de interface‑taal om i18n‑dekking en lay‑out te testen."
+  },
+  "switch": {
+    "light": "Licht",
+    "dark": "Donker",
+    "en": "EN",
+    "nl": "NL",
+    "fr": "FR"
+  },
+  "lang": {
+    "english": "English",
+    "dutch": "Nederlands",
+    "french": "Français"
+  },
+  "form": {
+    "title": "Titel",
+    "description": "Omschrijving",
+    "descriptionHelp": "Korte notitie waarvoor deze sleutel wordt gebruikt.",
+    "accessRules": "Toegangsrechten",
+    "disabled": "Uitgeschakeld",
+    "read": "Lezen",
+    "readwrite": "Lezen + Schrijven",
+    "generate": "API-sleutel genereren",
+    "save": "Wijzigingen opslaan",
+    "cancel": "Annuleren",
+    "revokedCannotEdit": "Deze sleutel is ingetrokken en kan niet worden bewerkt."
+  },
+  "list": {
+    "loading": "Sleutels laden…",
+    "empty": "Nog geen API-sleutels.",
+    "created": "Aangemaakt:",
+    "revoked": "Ingetrokken:"
+  },
+  "btn": {
+    "show": "Tonen",
+    "hide": "Verbergen",
+    "ok": "Ok",
+    "copy": "Kopiëren",
+    "revoke": "Intrekken",
+    "edit": "Bewerken",
+    "view": "Bekijken",
+    "back": "Terug",
+    "delete": "Verwijderen",
+    "dismiss": "Sluiten",
+    "showDev": "Dev tonen",
+    "hideDev": "Dev verbergen"
+  },
+  "details": {
+    "usage": "Gebruik",
+    "requests": "Verzoeken",
+    "errors": "Fouten",
+    "last24h": "Laatste 24 uur",
+    "last14days": "Laatste 14 dagen",
+    "readAccess": "Leesrechten",
+    "writeAccess": "Schrijfrechten"
+  },
+  "modal": {
+    "deleteTitle": "API-sleutel verwijderen",
+    "deleteConfirm": "Weet je zeker dat je \"{{title}}\" wilt verwijderen? Dit kan niet ongedaan worden gemaakt.",
+    "createTitle": "API‑sleutel aanmaken",
+    "editTitle": "API‑sleutel bewerken",
+    "revokeTitle": "API‑sleutel intrekken",
+    "revokeConfirm": "Weet je zeker dat je \"{{title}}\" wilt intrekken? Deze actie kan niet ongedaan worden gemaakt."
+  },
+  "dashboard": {
+    "recentKeys": {
+      "more": "({{count}} meer)"
+    }
+  },
+  "toast": {
+    "missingTitleTitle": "Titel ontbreekt",
+    "missingTitleMsg": "Vul een titel in voordat je een API-sleutel genereert.",
+    "createdTitle": "API-sleutel aangemaakt",
+    "createdMsg": "Sleutel voor \"{{title}}\" is gegenereerd.",
+    "updatedTitle": "API-sleutel bijgewerkt",
+    "updatedMsg": "Rechten voor \"{{title}}\" opgeslagen.",
+    "copiedTitle": "Gekopieerd",
+    "copiedMsg": "API-sleutel gekopieerd naar klembord.",
+    "revokedTitle": "Sleutel ingetrokken",
+    "revokedMsg": "\"{{title}}\" is nu ingetrokken.",
+    "deletedTitle": "Sleutel verwijderd",
+    "deletedMsg": "\"{{title}}\" is verwijderd."
+  }
+}

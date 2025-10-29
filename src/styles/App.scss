@@ -1,0 +1,41 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    padding: var(--space-l) var(--space);
+    display: flex;
+    align-items: center;
+    gap: var(--space);
+    width: 100%;
+    border: 1px solid red;
+    position: fixed;
+    top: 0;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__main {
+    flex: 1;
+    background-color: var(--color-background);
+    margin-bottom: clamp(320px, 50vh, 800px);
+    box-shadow: 0 0 200px 0 black;
+    position: relative;
+    z-index: 1;
+    @media screen and (max-width: 768px){
+      margin-bottom: 100vh;
+    }
+  }
+}
+
+.dev-fab {
+  position: fixed;
+  right: clamp(12px, 2vw, 24px);
+  bottom: clamp(12px, 2vw, 24px);
+  z-index: 3000;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, .25));
+}

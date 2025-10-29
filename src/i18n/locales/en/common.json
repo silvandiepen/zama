@@ -1,0 +1,271 @@
+{
+  "app": {
+    "title": "API Key Manager",
+    "apiKeysCardTitle": "API Keys",
+    "addKey": "Add Key"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "docs": "Docs",
+    "about": "About"
+  },
+  "docsPage": {
+    "title": "Documentation",
+    "subtitle": "Comprehensive guide to the Sandbox Console"
+  },
+  "docs": {
+    "nav": {
+      "quickstart": "Quickstart",
+      "overview": "Overview",
+      "architecture": "Architecture",
+      "styling": "Styling",
+      "components": "Components",
+      "state-management": "State Management",
+      "data-services": "Data Services",
+      "development-tools": "Development Tools",
+      "best-practices": "Best Practices",
+      "aria": "Documentation navigation"
+    },
+    "missing": "Content coming soon."
+  },
+  "apiKeys": {
+    "description": "Manage, create, and revoke your API keys for different applications."
+  },
+  "usage": {
+    "title": "Usage",
+    "subtitle": "Aggregate request volume across all keys for the last 24 hours",
+    "aggregate24h": "Usage (aggregate 24h)",
+    "totalRequests": "Total requests",
+    "averageRequests": "Average/hour",
+    "peakRequests": "Peak",
+    "usageOverview": "Usage overview",
+    "keyUsage": "Per-key usage",
+    "performance": "Performance",
+    "revoked": "Revoked",
+    "active": "Active",
+    "tableTitle": "Requests (table)",
+    "tableSubtitle": "Current period breakdown"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your preferences and account-wide options"
+  },
+  "about": {
+    "tagline": "Full-Stack Developer & UI/UX Engineer",
+    "aboutCreator": "About the Creator",
+    "skillsTitle": "Skills & Expertise",
+    "frontend": "Frontend Development",
+    "backend": "Backend Development",
+    "design": "Design & User Experience",
+    "projectTitle": "This Project",
+    "familyTitle": "Family & Personal",
+    "contactTitle": "Get in Touch",
+    "intro1": "Hello! I'm Sil van Diepen, a passionate full-stack developer with expertise in modern web technologies and a keen eye for design.",
+    "intro2": "I specialize in creating developer tools that are both powerful and delightful to use. This Sandbox Console demonstrates my approach to developer tooling.",
+    "projectDesc": "The Sandbox Console showcases modern web development practices and demonstrates my approach to building developer-facing tools. It features:",
+    "feature": {
+      "reactTs": "React 19 with TypeScript for type safety",
+      "bemScss": "BEM methodology with SCSS for maintainable styles",
+      "components": "Component-driven architecture",
+      "i18n": "Internationalization support",
+      "theme": "Dark/light theme switching",
+      "mockData": "Mock data services and local storage",
+      "charts": "Chart visualization for analytics",
+      "responsive": "Responsive design principles"
+    },
+    "skill": {
+      "reactTs": "React & TypeScript",
+      "vueNuxt": "Vue.js & Nuxt.js",
+      "cssScss": "Modern CSS & SCSS",
+      "animation": "Animation",
+      "state": "State Management",
+      "components": "Component Libraries",
+      "nodeExpress": "Node.js & Express",
+      "restGraphql": "REST & GraphQL",
+      "dbDesign": "Database Design",
+      "api": "API Development",
+      "cloud": "Cloud Services",
+      "uiux": "UI/UX Design",
+      "designSystems": "Design Systems",
+      "designTools": "Figma, Photoshop & Illustrator",
+      "icons": "Iconography",
+      "responsive": "Responsive Design",
+      "a11y": "Accessibility",
+      "performance": "Performance Optimization"
+    },
+    "familyAlt": "Sil’s family",
+    "familyDesc1": "Beyond the code, I’m a family-driven person who values time spent with loved ones.",
+    "familyDesc2": "Outside of work I enjoy exploring new tech, photography, and deep dives into design systems and typography.",
+    "familyDesc3": "Also passionate about cooking and travel.",
+    "contactDesc": "I'm always interested in collaborating on exciting projects or discussing new opportunities.",
+    "visitWebsite": "Visit Website",
+    "github": "GitHub",
+    "email": "Email",
+    "footer": "© 2025 Sil van Diepen.",
+    "tech": {
+      "react": "React 19",
+      "reactDesc": "Modern architecture, concurrent features, and strong composition patterns.",
+      "typescript": "TypeScript",
+      "typescriptDesc": "Typed components, stricter props, and safer refactors.",
+      "vite": "Vite",
+      "viteDesc": "Fast dev server, optimized builds, and modern ESM tooling.",
+      "i18n": "react-i18next",
+      "i18nDesc": "Multi-language UI with runtime language switcher.",
+      "charts": "Chart.js + react-chartjs-2",
+      "chartsDesc": "Usage charts with responsive, theme-aware styling.",
+      "router": "React Router 7",
+      "routerDesc": "Client-side routing with transitions and layout handling.",
+      "eslint": "ESLint",
+      "eslintDesc": "Consistent code style and quality checks.",
+      "sass": "Sass",
+      "sassDesc": "Design tokens, BEM, and theming with CSS custom properties.",
+      "icons": "open-icon",
+      "iconsDesc": "Lightweight SVG icons loaded on demand.",
+      "bemm": "bemm",
+      "bemmDesc": "Utility for BEM class naming and modifiers."
+    }
+  },
+  "menu": {
+    "title": "Menu",
+    "primaryAria": "Primary navigation",
+    "options": "Options",
+    "account": "Account",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "dev": {
+    "title": "Dev Tools",
+    "theme": "Theme",
+    "themeDesc": "Preview light or dark theme to validate contrast, spacing, and component states.",
+    "featureFlags": "Feature Flags",
+    "featureFlagsDesc": "Toggle optional UI behaviors to simulate different product configurations.",
+    "enableDescriptions": "Enable descriptions",
+    "enableCopy": "Enable copy",
+    "enableRevoke": "Enable revoke",
+    "colorMode": "Color mode",
+    "language": "Language",
+    "languageDesc": "Switch the interface language to test i18n coverage and layout."
+  },
+  "switch": {
+    "light": "Light",
+    "dark": "Dark",
+    "en": "EN",
+    "nl": "NL",
+    "fr": "FR"
+  },
+  "lang": {
+    "english": "English",
+    "dutch": "Nederlands",
+    "french": "Français"
+  },
+  "form": {
+    "title": "Title",
+    "description": "Description",
+    "descriptionHelp": "Short note about what this key will be used for.",
+    "accessRules": "Access Rules",
+    "disabled": "Disabled",
+    "read": "Read",
+    "readwrite": "Read + Write",
+    "generate": "Generate API Key",
+    "save": "Save Changes",
+    "cancel": "Cancel",
+    "revokedCannotEdit": "This key is revoked and cannot be edited."
+  },
+  "list": {
+    "loading": "Loading keys…",
+    "empty": "No API keys yet.",
+    "created": "Created:",
+    "revoked": "Revoked:",
+    "onlyAtCreation": "Only visible at creation"
+  },
+  "btn": {
+    "show": "Show",
+    "hide": "Hide",
+    "ok": "Ok",
+    "copy": "Copy",
+    "revoke": "Revoke",
+    "edit": "Edit",
+    "view": "View",
+    "back": "Back",
+    "delete": "Delete",
+    "dismiss": "Dismiss",
+    "showDev": "Show Dev",
+    "hideDev": "Hide Dev",
+    "regenerate": "Regenerate",
+    "createFirstKey": "Create your first key"
+  },
+  "details": {
+    "usage": "Usage",
+    "requests": "Requests",
+    "errors": "Errors",
+    "last24h": "Last 24 hours",
+    "last14days": "Last 14 days",
+    "readAccess": "Read Access",
+    "writeAccess": "Write Access"
+  },
+  "modal": {
+    "deleteTitle": "Delete API Key",
+    "deleteConfirm": "Are you sure you want to delete \"{{title}}\"? This cannot be undone.",
+    "createTitle": "Create API Key",
+    "editTitle": "Edit API Key",
+    "revealTitle": "Your new API key",
+    "revealDesc": "This key is only shown once. Please store it securely now.",
+    "revokeTitle": "Revoke API Key",
+    "revokeConfirm": "Are you sure you want to revoke \"{{title}}\"? This cannot be undone."
+  },
+  "toast": {
+    "missingTitleTitle": "Missing title",
+    "missingTitleMsg": "Please enter a title before generating an API key.",
+    "createdTitle": "API Key Created",
+    "createdMsg": "Key for \"{{title}}\" has been generated.",
+    "updatedTitle": "API Key Updated",
+    "updatedMsg": "\"{{title}}\" rules saved.",
+    "copiedTitle": "Copied",
+    "copiedMsg": "API key copied to clipboard.",
+    "revokedTitle": "Key revoked",
+    "revokedMsg": "\"{{title}}\" is now revoked.",
+    "deletedTitle": "Key deleted",
+    "deletedMsg": "\"{{title}}\" was removed."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Monitor your API usage and manage your keys",
+    "stats": {
+      "totalKeys": "Total Keys",
+      "totalRequests": "Total Requests",
+      "recentActivity": "Recent Activity",
+      "errorRate": "Error Rate"
+    },
+    "quickActions": "Quick Actions",
+    "actions": {
+      "createKey": "Create API Key",
+      "createKeyDesc": "Generate a new API key for your applications",
+      "viewUsage": "View Usage Analytics",
+      "viewUsageDesc": "Check detailed statistics and performance metrics",
+      "readDocs": "Read Documentation",
+      "readDocsDesc": "Learn how to use the API and integrations",
+      "getStarted": "Get Started",
+      "getStartedDesc": "Quick guide to start using the API"
+    },
+    "requests24h": "Last 24 Hours Requests",
+    "recentKeys": {
+      "title": "Recent API Keys",
+      "active": "Active",
+      "neverUsed": "Never used",
+      "viewAll": "View all",
+      "empty": "No API keys yet. Create your first key to get started.",
+      "more": "({{count}} more)"
+    },
+    "systemStatus": "System Status",
+    "status": {
+      "api": "API Gateway",
+      "database": "Database",
+      "auth": "Authentication",
+      "theme": "Theme",
+      "operational": "Operational"
+    }
+  },
+  "common": {
+    "loading": "Loading..."
+  }
+}

@@ -1,0 +1,115 @@
+.auth {
+  &__shell {
+    --card-padding: var(--space-l);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space);
+  }
+
+  &__panel {
+    display: grid;
+  }
+
+  &__card {
+
+  }
+
+  &__tabs {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+  }
+
+  &__tab {
+    background: transparent;
+    border: var(--border-width, 1px) solid rgba(var(--color-dark-rgb), .12);
+    padding: var(--space-xs) var(--space);
+    border-radius: var(--border-radius-s);
+    cursor: pointer;
+  }
+
+  &__tab--active {
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+  }
+
+  /* Social circle icon buttons */
+  --brand-google: #4285F4;
+  --brand-apple: #0A0A0A;
+  --brand-github: #24292E;
+
+  &__social-icons {
+    display: inline-flex;
+    gap: var(--space-xs);
+    justify-content: center;
+  }
+
+  &__iconbtn {
+    width: calc(var(--space) * 2.5);
+    height: calc(var(--space) * 2.5);
+    border-radius: 999px;
+    border: none;
+    display: grid;
+    place-items: center;
+    color: var(--color-light);
+    background: var(--brand-color, var(--color-foreground));
+    box-shadow: 0 var(--space-xxs, .2rem) var(--space, 1rem) rgba(0, 0, 0, .12);
+    cursor: pointer;
+    transition: transform .15s var(--bezier), box-shadow .15s var(--bezier);
+  }
+
+  &__iconbtn:hover {
+    transform: translateY(calc(var(--space-xxs, .2rem) * -1));
+    box-shadow: 0 var(--space-xs) var(--space) rgba(0, 0, 0, .18);
+  }
+
+  &__iconbtn:active {
+    transform: translateY(0);
+  }
+
+  &__iconbtn--google {
+    --brand-color: var(--brand-google);
+  }
+
+  &__iconbtn--apple {
+    --brand-color: var(--brand-apple);
+  }
+
+  &__iconbtn--github {
+    --brand-color: var(--brand-github);
+  }
+
+  &__icon-svg {
+    width: calc(var(--space) * 1.25);
+    height: calc(var(--space) * 1.25);
+    display: block;
+  }
+
+
+  &__buttons{
+    margin-top: var(--space);
+    display: flex;
+    gap: var(--space);
+  }
+
+  &__social-login{
+    margin-top: var(--space-l);
+    padding: 0;
+    border:none;
+    border-top: 1px solid color-mix(in srgb, var(--color-foreground), transparent 75%);
+    display: flex; align-items: center;
+    justify-content: center;
+    legend{margin: auto; padding: var(--space); }
+  }
+
+  &__social-icons{
+    gap: var(--space);
+  }
+}
+
+.auth-page {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: var(--spacing);
+}

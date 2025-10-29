@@ -1,0 +1,88 @@
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  color: currentColor;
+
+  width: 1em;
+  height: 1em;
+
+  // SVG styling
+  svg {
+    width: 100%;
+    height: 100%;
+
+    path,
+    rect,
+    line,
+    circle,
+    polyline {
+      stroke: currentColor;
+    }
+  }
+
+  // Size variants
+  &--small {
+    width: 1em;
+    height: 1em;
+  }
+
+  &--medium {
+    width: 1.25em;
+    height: 1.25em;
+  }
+
+  &--large {
+    width: 2em;
+    height: 2em;
+  }
+
+  &--xl {
+    width: 4em;
+    height: 4em;
+  }
+
+  // Color variants
+  &--color-primary {
+    color: var(--color-primary);
+  }
+
+  &--color-secondary {
+    color: var(--color-secondary);
+  }
+
+  &--color-tertiary {
+    color: var(--color-tertiary);
+  }
+
+  &--color-success {
+    color: var(--color-success);
+  }
+
+  &--color-error {
+    color: var(--color-error);
+  }
+
+  &--color-warning {
+    color: var(--color-warning);
+  }
+
+  &--color-info {
+    color: var(--color-info);
+  }
+
+  // Brand icons (filled rather than stroked)
+  &--is-brand {
+    svg {
+      path,
+      rect,
+      line,
+      circle,
+      polyline {
+        stroke: none;
+        fill: currentColor;
+      }
+    }
+  }
+}

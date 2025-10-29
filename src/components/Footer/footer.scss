@@ -1,0 +1,311 @@
+.footer {
+  $b: &;
+
+  // Using CSS custom properties for theming
+  --footer-bg: color-mix(in srgb, var(--color-dark), var(--color-secondary) 10%);
+  --footer-text: var(--color-light);
+  --footer-border: color-mix(in srgb, var(--color-light), transparent 90%);
+  --footer-link: var(--color-light);
+  --footer-link-hover: var(--color-primary);
+  --footer-heading: var(--color-light);
+
+  // Spacing and layout
+  --footer-padding: var(--spacing);
+  --footer-section-gap: var(--space-xl);
+  --footer-link-gap: var(--space-xs);
+
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  display: flex;
+  align-items: flex-end;
+
+  &__content {
+    padding: var(--footer-padding);
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: var(--footer-section-gap);
+    width: 100%;
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--footer-section-gap);
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: var(--space-l);
+    }
+  }
+
+  &__brand {
+    display: grid;
+    gap: var(--space-m);
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+  }
+
+  &__logo-title {
+    margin: 0;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-display);
+
+    color: var(--footer-text);
+  }
+
+  &__logo-tagline {
+    margin: 0;
+    font-size: var(--font-size-s);
+    opacity: 0.8;
+  }
+
+  &__description {
+    font-size: var(--font-size-s);
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0;
+    max-width: 400px;
+  }
+  &__logo-icon{
+    font-size: 2em;
+  }
+
+  &__social {
+    display: flex;
+    gap: var(--space-xs);
+    margin-top: var(--space-s);
+  }
+
+  &__social-button {
+    --button-icon-size: 20px;
+    color: var(--footer-link);
+    border-radius: var(--border-radius-s);
+
+    &:hover {
+      color: var(--footer-link-hover);
+      background: color-mix(in srgb, var(--footer-link-hover), transparent 10%);
+    }
+  }
+
+
+
+  &__sections {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-m);
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      gap: var(--space-m);
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    width: 150px;
+    --nav-menu-padding: 0;
+  }
+
+  &__section-title {
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-semibold);
+    color: var(--footer-heading);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding:0 var(--space);
+  }
+
+  &__links {
+    display: grid;
+    gap: var(--footer-link-gap);
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xxs);
+    font-size: var(--font-size-s);
+    color: var(--footer-link);
+    text-decoration: none;
+    padding: var(--space-xxs) 0;
+    border-radius: var(--border-radius-xs);
+    transition: all 0.2s var(--bezier);
+
+    &:hover {
+      color: var(--footer-link-hover);
+      background: color-mix(in srgb, var(--footer-link-hover), transparent 5%);
+      transform: translateX(2px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--footer-link-hover);
+      outline-offset: 2px;
+    }
+  }
+
+  // NavMenu styling in footer
+  &__navmenu {
+    // Make NavMenu items smaller for footer
+    font-size: var(--font-size-s);
+
+    // Customize NavMenu for footer
+    .navmenu {
+      &--vertical {
+        display: grid;
+        gap: var(--space-xs);
+
+        .navmenu__item {
+          padding: var(--space-xxs) 0;
+          border-radius: var(--border-radius-xs);
+          transition: all 0.2s var(--bezier);
+          color: var(--footer-link);
+
+          &:hover {
+            background: color-mix(in srgb, var(--footer-link-hover), transparent 5%);
+            transform: translateX(2px);
+            color: var(--footer-link-hover);
+          }
+
+          &--active {
+            color: var(--footer-link-hover);
+            font-weight: var(--font-weight-medium);
+          }
+        }
+
+        // Override NavMenu highlights for footer
+        .navmenu__highlight {
+
+          &--active,
+          &--hover {
+            background: var(--footer-link-hover);
+            opacity: 0.1;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-m);
+    border-top: 1px solid var(--footer-border);
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: var(--space-m);
+      align-items: flex-start;
+    }
+  }
+
+  &__legal {
+    display: grid;
+    gap: var(--space-xs);
+
+    @media (max-width: 768px) {
+      gap: var(--space-s);
+    }
+  }
+
+  &__copyright {
+    font-size: var(--font-size-xs);
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  &__legal-links {
+    display: flex;
+    gap: var(--space-m);
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+      gap: var(--space-s);
+    }
+  }
+
+  &__legal-link {
+    font-size: var(--font-size-xs);
+    color: var(--footer-link);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s var(--bezier);
+
+    &:hover {
+      opacity: 1;
+      color: var(--footer-link-hover);
+    }
+  }
+
+  &__badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xxs);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-success-text);
+    background: color-mix(in srgb, var(--color-success), transparent 20%);
+    padding: var(--space-xxs) var(--space-xs);
+    border-radius: var(--border-radius-s);
+    border: 1px solid color-mix(in srgb, var(--color-success), transparent 30%);
+  }
+
+  &__back-to-top {
+    animation: slideInUp 0.3s var(--bezier) both;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Dark theme support
+[data-theme="dark"] {
+  .footer {
+    --footer-bg: color-mix(in srgb, var(--color-foreground), transparent 96%);
+    --footer-border: color-mix(in srgb, var(--color-foreground), transparent 85%);
+
+    &__badge {
+      background: color-mix(in srgb, var(--color-success), transparent 15%);
+      border-color: color-mix(in srgb, var(--color-success), transparent 25%);
+    }
+  }
+}

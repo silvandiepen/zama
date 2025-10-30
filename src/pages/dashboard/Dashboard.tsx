@@ -175,7 +175,11 @@ export const Dashboard: React.FC = () => {
                 >
                   <Card color={action.color} hoverable>
                     <div className={bemm("action-content")}>
+<<<<<<< HEAD
                       <div className={bemm("action-icon",[action.icon])}>
+=======
+                      <div className={bemm("action-icon")}>
+>>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b
                         <Icon name={action.icon} />
                       </div>
                       <h3 className={bemm("action-title")}>{action.title}</h3>

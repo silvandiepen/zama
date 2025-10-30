@@ -1,5 +1,8 @@
 .dashboard {
+<<<<<<< HEAD
   $b: &;
+=======
+>>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b
 
   &__header {
     margin-bottom: var(--space-xl);
@@ -176,6 +179,7 @@
     opacity: 0.5;
     transition: opacity 0.2s ease;
 
+<<<<<<< HEAD
     position: absolute;
     top: 50%;
     font-size: 1.5em;
@@ -357,6 +361,14 @@
         }
       }
     }
+=======
+    position: absolute; top: 50%;
+    font-size: 1.5em;
+  }
+
+  &__action-card:hover &__action-arrow {
+    opacity: 1;
+>>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b
   }
 
   &__activity-section {
@@ -510,3 +522,77 @@
     opacity: 0.7;
   }
 }
+<<<<<<< HEAD
+=======
+
+/* Reveal and pop-in animations for Dashboard */
+@keyframes dash-pop-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes dash-slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dash-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Base state for animated elements */
+.dashboard [data-animate] {
+  opacity: 0;
+  transform: translateY(12px) scale(.98);
+}
+
+/* On initial load, pop elements with a stagger */
+.dashboard--loaded .dashboard__stats-grid .dashboard__stat-card,
+.dashboard--loaded .dashboard__actions-grid .dashboard__action-card,
+.dashboard--loaded .dashboard__recent-list .dashboard__recent-item,
+.dashboard--loaded .dashboard__status-grid .dashboard__status-item {
+  animation: dash-pop-in .6s var(--bezier) both;
+}
+.dashboard--loaded .dashboard__stats-grid .dashboard__stat-card:nth-child(1) { animation-delay: .05s; }
+.dashboard--loaded .dashboard__stats-grid .dashboard__stat-card:nth-child(2) { animation-delay: .10s; }
+.dashboard--loaded .dashboard__stats-grid .dashboard__stat-card:nth-child(3) { animation-delay: .15s; }
+.dashboard--loaded .dashboard__stats-grid .dashboard__stat-card:nth-child(4) { animation-delay: .20s; }
+.dashboard--loaded .dashboard__actions-grid .dashboard__action-card:nth-child(1) { animation-delay: .05s; }
+.dashboard--loaded .dashboard__actions-grid .dashboard__action-card:nth-child(2) { animation-delay: .10s; }
+.dashboard--loaded .dashboard__actions-grid .dashboard__action-card:nth-child(3) { animation-delay: .15s; }
+.dashboard--loaded .dashboard__actions-grid .dashboard__action-card:nth-child(4) { animation-delay: .20s; }
+
+/* When element scrolls into view (via IO), ensure visible */
+.dashboard [data-animate].in-view {
+  animation: dash-pop-in .6s var(--bezier) both;
+}
+.dashboard [data-animate="slide"].in-view { animation-name: dash-slide-up; }
+.dashboard [data-animate="fade"].in-view { animation-name: dash-fade-in; }
+
+/* Native Scroll/ View Timelines (progressive enhancement) */
+@supports (animation-timeline: --reveal) {
+  .dashboard [data-animate] {
+    view-timeline-name: --reveal;
+    view-timeline-axis: block;
+    animation-timeline: --reveal;
+    animation-name: dash-pop-in;
+    animation-range: entry 0% cover 35%;
+    animation-fill-mode: both;
+    opacity: 1; /* ensure timeline controls opacity */
+    transform: none;
+  }
+  .dashboard [data-animate="slide"] { animation-name: dash-slide-up; }
+  .dashboard [data-animate="fade"] { animation-name: dash-fade-in; }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+>>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b

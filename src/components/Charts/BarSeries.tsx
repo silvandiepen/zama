@@ -1,47 +1,53 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { Bar } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import { useThemeColors } from './useThemeColors';
+import { chartAreaBackground } from './chartAreaPlugin';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 type Props = { labels: string[]; data: number[]; height?: number };
 
 export const BarSeries: React.FC<Props> = ({ labels, data, height = 160 }) => {
   const { info, grid, text } = useThemeColors();
-  
-  const chartData = labels.map((label, i) => ({
-    label,
-    value: data[i] ?? 0,
-  }));
-
+  const ds = labels.map((_, i) => data[i] ?? 0);
   return (
-    <ResponsiveContainer width="100%" height={height}>
-      <BarChart data={chartData} margin={{ top: 4, right: 4, bottom: 4, left: 4 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke={grid} />
-        <XAxis 
-          dataKey="label" 
-          stroke={text}
-          tick={{ fontSize: 12 }}
-        />
-        <YAxis 
-          stroke={text}
-          tick={{ fontSize: 12 }}
-        />
-        <Tooltip 
-          contentStyle={{ 
-            backgroundColor: 'var(--color-surface-secondary)',
-            border: '1px solid var(--color-border-primary)',
-            borderRadius: 'var(--border-radius-s)',
-            color: 'var(--color-foreground)'
-          }}
-          labelStyle={{ color: 'var(--color-foreground)' }}
-        />
-        <Bar 
-          dataKey="value" 
-          fill={info}
-          fillOpacity={0.8}
-          radius={[6, 6, 0, 0]}
-          maxBarSize={22}
-        />
-      </BarChart>
-    </ResponsiveContainer>
+    <Bar
+      data={{
+        labels,
+        datasets: [
+          {
+            label: 'Requests',
+            data: ds,
+            backgroundColor: info + 'cc',
+            borderRadius: 6,
+            borderSkipped: false as any,
+          },
+        ],
+      }}
+      options={{
+        responsive: true,
+        maintainAspectRatio: false,
+        resizeDelay: 150,
+        devicePixelRatio: 1,
+        normalized: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: grid }, ticks: { color: text } },
+          y: { grid: { color: grid }, ticks: { color: text }, beginAtZero: true },
+        },
+        layout: { padding: 4 },
+        datasets: { bar: { maxBarThickness: 22, barPercentage: 0.85, categoryPercentage: 0.85 } }
+      }}
+      height={height}
+      plugins={[chartAreaBackground]}
+    />
   );
 };

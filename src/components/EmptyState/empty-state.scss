@@ -8,20 +8,6 @@
   color: var(--color-text-secondary);
   min-height: 300px;
 
-  &__video {
-    width: 320px;
-    height: 320px;
-    border: 1px solid red;
-    border-radius: var(--border-radius);
-    margin: auto;
-
-    video {
-      width: 100%;
-      margin: 0;
-      border-radius: inherit;
-    }
-  }
-
   &__icon {
     display: flex;
     align-items: center;

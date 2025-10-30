@@ -6,7 +6,10 @@ import { Badge } from "@/components/Badge";
 import { Colors, Size } from "@/types";
 import { Modal } from "@/components/Modal/Modal";
 import { EmptyState } from "@/components/EmptyState/EmptyState";
+<<<<<<< HEAD
 import { CopyButton } from "@/components/CopyButton";
+=======
+>>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b
 import { useFeatureFlags } from "@/store/featureFlags";
 import { useToast } from "@/store/toast";
 import "./apikeys.scss";
@@ -347,12 +350,35 @@ export const ApiKeyList: React.FC<Props> = ({ onEdit, onCreate }) => {
               >
                 {revealKey}
               </code>
+<<<<<<< HEAD
               <CopyButton
                 text={revealKey}
                 size={Size.MEDIUM}
                 color={Colors.PRIMARY}
                 style={{ alignSelf: "start" }}
               />
+=======
+              <Button
+                size={Size.MEDIUM}
+                color={Colors.PRIMARY}
+                onClick={async () => {
+                  try {
+                    await navigator.clipboard.writeText(revealKey);
+                    addToast({
+                      title: t("toast.copiedTitle"),
+                      message: t("toast.copiedMsg"),
+                      variant: "success",
+                    });
+                  } catch {
+                    /* ignore */
+                  }
+                }}
+                icon="copy"
+                style={{ alignSelf: "start" }}
+              >
+                {t("btn.copy")}
+              </Button>
+>>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b
             </div>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <Button

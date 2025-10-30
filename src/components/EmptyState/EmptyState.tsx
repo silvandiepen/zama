@@ -1,8 +1,8 @@
-import React from 'react';
-import { useBemm } from '@/utils/bemm';
-import { Icon } from '@/components/Icon/Icon';
-import type { EmptyStateProps } from './model';
-import './empty-state.scss';
+import React from "react";
+import { useBemm } from "@/utils/bemm";
+import { Icon } from "@/components/Icon/Icon";
+import type { EmptyStateProps } from "./model";
+import "./empty-state.scss";
 
 /**
  * Empty state component for displaying placeholder content when no data is available.
@@ -19,29 +19,26 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
   icon,
   title,
   description,
-  size = 'medium',
-  action
+  size = "medium",
+  action,
 }) => {
-  const bemm = useBemm('empty-state');
+  const bemm = useBemm("empty-state");
 
   return (
-    <div className={bemm('', [size])}>
-      <div className={bemm('icon')}>
-        {icon && <Icon name={icon} size="large" />}
+    <div className={bemm("", [size])}>
+      <div className={bemm("video")}>
+        <video className={bemm("empty-video")} autoplay loop muted playsinline>
+          <source src="/no-keys-hevc.mov" type="video/mp4; codecs=hvc1" />
+          <source src="/no-keys-vp9.webm" type="video/webm; codecs=vp9" />
+        </video>
       </div>
-      
-      <div className={bemm('content')}>
-        <h2 className={bemm('title')}>{title}</h2>
-        {description && (
-          <p className={bemm('description')}>{description}</p>
-        )}
+
+      <div className={bemm("content")}>
+        <h2 className={bemm("title")}>{title}</h2>
+        {description && <p className={bemm("description")}>{description}</p>}
       </div>
-      
-      {action && (
-        <div className={bemm('action')}>
-          {action}
-        </div>
-      )}
+
+      {action && <div className={bemm("action")}>{action}</div>}
     </div>
   );
 };

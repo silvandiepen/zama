@@ -1,14 +1,16 @@
 import React from 'react';
 import { Button } from '@/components/Button';
-import { Size } from '@/types/size';
+import { Size } from '@/types';
 import type { Color } from '@/types/colors';
 import { Colors } from '@/types';
 import { useToast } from '@/store/toast';
 import { useTranslation } from 'react-i18next';
 
+type CopyButtonSize = typeof Size[keyof typeof Size];
+
 type Props = {
   text: string;
-  size?: Size;
+  size?: CopyButtonSize;
   color?: Color;
   variant?: 'default' | 'ghost' | 'outline';
   iconOnly?: boolean;

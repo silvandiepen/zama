@@ -29,7 +29,7 @@ import { Settings } from "@/pages/Settings";
 import { Docs } from "@/pages/Docs";
 import { useTranslation } from "react-i18next";
 import { Footer } from "@/components/Footer";
-import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { ScrollToTopWrapper } from "@/components/ScrollToTopWrapper";
 
 // Layout components for authenticated pages
 
@@ -97,9 +97,6 @@ function App() {
   const [showDev, setShowDev] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const { t } = useTranslation();
-  
-  // Scroll to top on route change
-  useScrollToTop();
   return (
     <ThemeProvider>
       <FeatureFlagsProvider>
@@ -108,7 +105,8 @@ function App() {
             <AuthProvider>
               <KeysProvider>
                 <BrowserRouter>
-                  <Routes>
+                  <ScrollToTopWrapper>
+                    <Routes>
                     <Route
                       path="/"
                       element={<Navigate to="/signin" replace />}
@@ -216,7 +214,8 @@ function App() {
                         </MainShell>
                       }
                     />
-                  </Routes>
+                    </Routes>
+                  </ScrollToTopWrapper>
                   <Modal open={showDev} onClose={() => setShowDev(false)} title={t("dev.title")}>
                     <DevPanel onClose={() => setShowDev(false)} />
                   </Modal>

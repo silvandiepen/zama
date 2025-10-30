@@ -104,11 +104,6 @@ export const ApiKeysPage: React.FC = () => {
               size={Size.SMALL}
               color={Colors.PRIMARY}
             />
-            <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <Button size={Size.SMALL} onClick={() => setRevealKey(null)}>
-                {t("btn.dismiss")}
-              </Button>
-            </div>
           </div>
         )}
       </Modal>

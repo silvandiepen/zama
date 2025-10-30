@@ -16,7 +16,6 @@ import './empty-state.scss';
  * @returns {JSX.Element} The rendered empty state component.
  */
 export const EmptyState: React.FC<EmptyStateProps> = ({
-  icon,
   title,
   description,
   size = 'medium',
@@ -26,17 +25,18 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
 
   return (
     <div className={bemm('', [size])}>
-      <div className={bemm('icon')}>
-        {icon && <Icon name={icon} size="large" />}
-      </div>
-      
+      <video className={bemm('video')}>
+        <source src="/no-key-hevc.mov"></source>
+        <source src="/no-key-vp9.webm"></source>
+      </video>
+
       <div className={bemm('content')}>
         <h2 className={bemm('title')}>{title}</h2>
         {description && (
           <p className={bemm('description')}>{description}</p>
         )}
       </div>
-      
+
       {action && (
         <div className={bemm('action')}>
           {action}

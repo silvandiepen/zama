@@ -20,13 +20,13 @@ import { Icons } from "open-icon";
 
 export const KeyDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { state, loadKeys } = useKeys();
+  const { state, loadKeys, decryptKey } = useKeys();
   const [keyItem, setKeyItem] = useState<ApiKey | undefined>(undefined);
   const [stats, setStats] = useState<KeyStats | undefined>(undefined);
   const bemm = useBemm("keydetail");
   const { t } = useTranslation();
-  const [editOpen, setEditOpen] = useState(false);
   const { addToast } = useToast();
+  const [editOpen, setEditOpen] = useState(false);
 
   useEffect(() => {
     if (!state.items.length) loadKeys();
@@ -63,30 +63,24 @@ export const KeyDetail: React.FC = () => {
             {t("details.usage")}
           </h3>
           <div className={bemm("stats")}>
-            <Card className={bemm("stat")} color={Colors.PRIMARY}>
+            <Card className={bemm("stat")} color={Colors.PRIMARY} title={t("details.requests")}>
               <div className={bemm("stat-number")}>
                 {stats?.totalCalls ?? "–"}
               </div>
-              <div className={bemm("stat-label")}>{t("details.requests")}</div>
             </Card>
-            <Card className={bemm("stat")} color={Colors.PRIMARY}>
+            <Card className={bemm("stat")} color={Colors.PRIMARY} title={t("details.errors")}>
               <div className={bemm("stat-number")}>
                 {stats?.totalErrors ?? "–"}
               </div>
-              <div className={bemm("stat-label")}>{t("details.errors")}</div>
             </Card>
           </div>
           <div className={bemm("charts")}>
-            <div style={{ height: 180 }}>
-              <div className={bemm("chart-title")}>{t("details.last24h")}</div>
+            <Card title={t("details.last24h")}>
               <Bar24h data={stats?.last24h || []} />
-            </div>
-            <div style={{ height: 200 }}>
-              <div className={bemm("chart-title")}>
-                {t("details.last14days")}
-              </div>
+            </Card>
+            <Card title={t("details.last14days")}>
               <Line14d data={stats?.last14Days || []} />
-            </div>
+            </Card>
           </div>
         </div>
 
@@ -134,13 +128,31 @@ export const KeyDetail: React.FC = () => {
               color={Colors.SECONDARY}
               onClick={async () => {
                 try {
-                  await navigator.clipboard.writeText(keyItem.key);
+                  // Decrypt the key for copying
+                  const decryptedKey = await decryptKey(keyItem.id);
+                  if (!decryptedKey) {
+                    addToast({
+                      title: t("toast.errorTitle", { defaultValue: "Error" }),
+                      message: t("toast.decryptFailed", { defaultValue: "Failed to decrypt key" }),
+                      variant: "error",
+                    });
+                    return;
+                  }
+
+                  await navigator.clipboard.writeText(decryptedKey);
                   addToast({
                     title: t("toast.copiedTitle"),
                     message: t("toast.copiedMsg"),
                     variant: "success",
                   });
-                } catch {}
+                } catch (error) {
+                  console.error("Copy failed", error);
+                  addToast({
+                    title: t("toast.errorTitle", { defaultValue: "Error" }),
+                    message: t("toast.copyFailed", { defaultValue: "Failed to copy key" }),
+                    variant: "error",
+                  });
+                }
               }}
               icon={Icons.CLIPBOARD}
             >

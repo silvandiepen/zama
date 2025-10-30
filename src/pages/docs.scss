@@ -177,13 +177,24 @@
 
     // Inline code styling
     :not(pre) > code {
-      background: color-mix(in srgb, var(--color-primary), transparent 85%);
-      color: var(--color-primary-text);
-      padding: var(--space-xxs) var(--space-xs);
-      border-radius: var(--border-radius-xs);
+      position: relative;
+      color: var(--color-foreground);
+
       font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
       font-size: 0.9em;
-      border: 1px solid color-mix(in srgb, var(--color-primary), transparent 70%);
+      &::before{
+        content: "";
+        position: absolute; top: 50%; left: 50%;
+        width: calc(100% + var(--space-s)); height:  calc(100% + var(--space-s));
+        transform: translate(-50%,-50%);
+        display: block;
+        padding: var(--space-xxs) var(--space-xs);
+        border-radius: var(--border-radius-xs);      background: color-mix(in srgb, var(--color-primary), transparent 85%);
+
+        z-index: -1;
+        border: 1px solid color-mix(in srgb, var(--color-primary), transparent 70%);
+
+      }
     }
 
     // Blockquote styling

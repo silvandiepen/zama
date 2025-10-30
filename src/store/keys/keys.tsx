@@ -4,20 +4,35 @@ import { dbCreateKey, dbDeleteKey, dbGetKeys, dbRevokeKey, dbUpdateKey, dbRegene
 import { Ctx } from './keys.context';
 import { STORAGE_KEY, type KeysState, type Action } from './keys.model';
 
+/**
+ * Validates and ensures a key is properly masked. If not masked, creates a masked version.
+ * @param {ApiKey} key - The API key to validate
+ * @returns {ApiKey} The validated API key with proper masking
+ */
+function validateKeyMasking(key: ApiKey): ApiKey {
+  if (key.key && !key.key.includes('•') && key.key.length > 8) {
+    // Key appears to be unmasked - fix it
+    const maskedKey = `${key.key.substring(0, 8)}${'•'.repeat(key.key.length - 8)}`;
+    console.warn(`Unmasked key detected and fixed: ${key.key.substring(0, 8)}...`);
+    return { ...key, key: maskedKey };
+  }
+  return key;
+}
+
 function reducer(state: KeysState, action: Action): KeysState {
   switch (action.type) {
     case "loading":
       return { ...state, loading: action.value };
     case "set":
-      return { ...state, items: action.items };
+      return { ...state, items: action.items.map(validateKeyMasking) };
     case "add":
-      return { ...state, items: [action.item, ...state.items] };
+      return { ...state, items: [validateKeyMasking(action.item), ...state.items] };
     case "remove":
       return { ...state, items: state.items.filter((k) => k.id !== action.id) };
     case "update":
       return {
         ...state,
-        items: state.items.map((k) => (k.id === action.item.id ? action.item : k)),
+        items: state.items.map((k) => (k.id === action.item.id ? validateKeyMasking(action.item) : k)),
       };
     default:
       return state;

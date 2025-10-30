@@ -59,7 +59,7 @@ export const ApiKeyList: React.FC<Props> = ({ onEdit, onCreate }) => {
         });
         return;
       }
-      
+
       await navigator.clipboard.writeText(decryptedKey);
       addToast({
         title: t("toast.copiedTitle"),
@@ -310,10 +310,10 @@ export const ApiKeyList: React.FC<Props> = ({ onEdit, onCreate }) => {
                 borderRadius: "var(--border-radius-s)",
               }}
             >
-              <div style={{ 
-                display: "flex", 
-                alignItems: "center", 
-                gap: "var(--space-xs)", 
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "var(--space-xs)",
                 marginBottom: "var(--space-s)",
                 fontSize: "var(--font-size-s)",
                 fontWeight: "600",
@@ -321,15 +321,15 @@ export const ApiKeyList: React.FC<Props> = ({ onEdit, onCreate }) => {
               }}>
                 🔒 Encrypted with Zama TFHE
               </div>
-              <div style={{ 
-                fontSize: "var(--font-size-xs)", 
+              <div style={{
+                fontSize: "var(--font-size-xs)",
                 opacity: 0.7,
                 marginBottom: "var(--space-s)"
               }}>
                 Post-Quantum Secure Encryption • Algorithm: TFHE v1.0.0
               </div>
             </div>
-            
+
             <div
               style={{
                 display: "grid",

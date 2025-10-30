@@ -18,9 +18,11 @@ function readAll(): ApiKey[] {
     // Migration: Fix any unmasked keys (legacy data)
     keys = keys.map(key => {
       // Check if key appears to be unmasked (no dots and longer than 8 chars)
-      if (key.key && !key.key.includes('•') && key.key.length > 8 && !key.encryptedKey) {
+      // Remove the !key.encryptedKey condition to handle all unmasked keys
+      if (key.key && !key.key.includes('•') && key.key.length > 8) {
         // This looks like an unmasked legacy key - mask it
         const maskedKey = `${key.key.substring(0, 8)}${'•'.repeat(key.key.length - 8)}`;
+        console.log(`Migrating unmasked key to masked format: ${key.key.substring(0, 8)}...`);
         return { ...key, key: maskedKey };
       }
       return key;

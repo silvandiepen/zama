@@ -8,22 +8,10 @@
   color: var(--color-text-secondary);
   min-height: 300px;
 
-  &__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: var(--space-l);
-    border-radius: 50%;
-    background-color: var(--color-surface-secondary);
-    color: var(--color-text-tertiary);
-    opacity: 0.5;
-
-    .icon {
-      width: 2rem;
-      height: 2rem;
-    }
+  &__video {
+   width: 240px;
+   border-radius: var(--border-radius);
+   margin-bottom: var(--space);
   }
 
   &__content {

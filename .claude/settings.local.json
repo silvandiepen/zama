@@ -28,7 +28,8 @@
       "Bash(npm uninstall:*)",
       "Bash(git merge:*)",
       "Bash(git checkout:*)",
-      "Bash(pnpm remove:*)"
+      "Bash(pnpm remove:*)",
+      "Bash(grep:*)"
     ],
     "deny": []
   }

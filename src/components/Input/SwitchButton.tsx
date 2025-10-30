@@ -1,4 +1,3 @@
-import React from "react";
 import { useBemm } from "@/utils/bemm";
 import { BaseField } from "./BaseField";
 import { Icon } from "@/components/Icon";

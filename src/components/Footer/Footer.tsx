@@ -115,18 +115,21 @@ export const Footer: React.FC = () => {
             </p>
             <div className={bemm('social')}>
               {socialLinks.map((social, index) => (
-                <Button
+                <a
                   key={index}
-                  size={Size.SMALL}
-                  variant="ghost"
-                  iconOnly
-                  icon={social.icon}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={bemm('social-button')}
                   aria-label={social.label}
-                />
+                >
+                  <Button
+                    size={Size.SMALL}
+                    variant="ghost"
+                    iconOnly
+                    icon={social.icon}
+                  />
+                </a>
               ))}
             </div>
           </div>

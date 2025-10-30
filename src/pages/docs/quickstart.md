@@ -6,7 +6,7 @@ This guide will help you get the Zama TFHE API key management application runnin
 
 ### Prerequisites
 
-- **Node.js** 18+ (recommended: latest LTS)
+- **Node.js** 22+ (recommended: latest LTS)
 - **pnpm** package manager (recommended) or npm/yarn
 - **Git** for version control
 

@@ -10,12 +10,12 @@ export const Badge: React.FC<BadgeProps> = ({
   icon,
   className 
 }) => {
-  const bemm = useBemm();
+  const bemm = useBemm('badge');
   
   return (
-    <span className={bemm('badge', { variant, size }, className)}>
-      {icon && <span className={bemm('badge__icon')}>{icon}</span>}
-      <span className={bemm('badge__content')}>{children}</span>
+    <span className={[bemm('', { variant, size }), className].filter(Boolean).join(' ')}>
+      {icon && <span className={bemm('icon')}>{icon}</span>}
+      <span className={bemm('content')}>{children}</span>
     </span>
   );
 };

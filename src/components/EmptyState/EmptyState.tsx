@@ -1,6 +1,5 @@
 import React from 'react';
 import { useBemm } from '@/utils/bemm';
-import { Icon } from '@/components/Icon/Icon';
 import type { EmptyStateProps } from './model';
 import './empty-state.scss';
 

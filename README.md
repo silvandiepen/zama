@@ -6,7 +6,7 @@ Zama Console is a modern API gateway management interface built with React, Type
 
 ## Run locally
 
-Prereqs: Node 18+ and npm.
+Prereqs: Node 22+ and npm.
 
 ```bash
 npm install
@@ -20,7 +20,7 @@ This is a tiny “Sandbox Console” for a fictional gateway. Developers can sig
 
 ## Run locally
 
-Prereqs: Node 18+ and pnpm/npm.
+Prereqs: Node 22+ and pnpm/npm.
 
 ```bash
 pnpm install

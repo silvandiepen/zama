@@ -39,7 +39,7 @@ export const About: React.FC = () => {
     const handleCanPlay = () => {
       videos.forEach((video) => {
         if (video.paused) {
-          video.play().catch((error) => {
+          video.play().catch(() => {
             console.log("Autoplay prevented, waiting for user interaction");
           });
         }
@@ -84,10 +84,10 @@ export const About: React.FC = () => {
         <div className={bemm("header-image")} data-animate="fade">
           <video
             className={bemm("header-video")}
-            autoplay
+            autoPlay
             loop
             muted
-            playsinline
+            playsInline
           >
             <source src="/sil-hevc.mp4" type="video/mp4; codecs=hvc1" />
             <source src="/sil-vp9.webm" type="video/webm; codecs=vp9" />
@@ -249,10 +249,10 @@ export const About: React.FC = () => {
             <div className={bemm("family")}>
               <div className={bemm("family-photo")} data-animate="reveal-l">
                 <video
-                  autoplay
+                  autoPlay
                   loop
                   muted
-                  playsinline
+                  playsInline
                   className={bemm('family-video')}
                 >
                   <source src="/family-hevc.mp4" type="video/mp4; codecs=hvc1" />

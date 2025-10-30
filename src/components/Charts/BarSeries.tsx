@@ -24,7 +24,6 @@ export const BarSeries: React.FC<Props> = ({ labels, data, height = 160 }) => {
         <YAxis 
           stroke={text}
           tick={{ fontSize: 12 }}
-          beginAtZero
         />
         <Tooltip 
           contentStyle={{ 

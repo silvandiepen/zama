@@ -151,7 +151,6 @@ export const Dashboard: React.FC = () => {
                 featured
                 className={bemm("stat-content")}
                 title={stat.title}
-                icon={stat.icon}
               >
                 <div className={bemm("stat-value")}>{stat.value}</div>
               </Card>

@@ -13,6 +13,10 @@
     width: 100%;
     height: 100%;
 
+    * {
+      transform-box: fill-box;
+    }
+
     path,
     rect,
     line,
@@ -75,6 +79,7 @@
   // Brand icons (filled rather than stroked)
   &--is-brand {
     svg {
+
       path,
       rect,
       line,

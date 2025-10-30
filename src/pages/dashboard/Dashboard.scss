@@ -1,4 +1,5 @@
 .dashboard {
+  $b: &;
 
   &__header {
     margin-bottom: var(--space-xl);
@@ -175,12 +176,187 @@
     opacity: 0.5;
     transition: opacity 0.2s ease;
 
-    position: absolute; top: 50%;
+    position: absolute;
+    top: 50%;
     font-size: 1.5em;
   }
 
-  &__action-card:hover &__action-arrow {
-    opacity: 1;
+  &__action-card:hover {
+    #{$b}__action-arrow {
+      opacity: 1;
+      animation: bumpArrow .3s var(--bezier) forwards;
+
+      @keyframes bumpArrow {
+
+        0%,
+        100% {
+          transform: translateX(0%)
+        }
+
+        50% {
+          transform: translateX(-75%) scale(.75, 1);
+        }
+      }
+
+    }
+
+    #{$b}__action-icon {
+      --icon-fill: var(--color-secondary);
+
+      &--playback-play .icon {
+        animation: bumpPlay .3s var(--bezier) forwards;
+
+        @keyframes bumpPlay {
+          0% {
+            transform: scale(1) rotate(0);
+          }
+
+          50% {
+            transform: scale(0.75) rotate(0);
+          }
+
+          100% {
+            transform: scale(1) rotate(0);
+          }
+        }
+      }
+
+      &--bookcase .icon {
+
+        line:nth-child(9),
+        line:nth-child(10),
+        line:nth-child(11) {
+          animation: book .3s var(--bezier) forwards;
+
+          @keyframes book {
+            0% {
+              transform: translateX(0);
+            }
+
+            100% {
+              transform: translateX(-.6em);
+            }
+          }
+        }
+      }
+
+      &--add-m .icon {
+        animation: bumpAdd .3s var(--bezier) forwards;
+
+        @keyframes bumpAdd {
+          0% {
+            transform: scale(1) rotate(0);
+          }
+
+          50% {
+            transform: scale(0.5) rotate(45deg);
+
+          }
+
+          100% {
+            transform: scale(1) rotate(90deg);
+          }
+        }
+      }
+
+      &--chart-candles .icon {
+
+
+        line:nth-child(3) {
+          animation: squeezeLine .3s var(--bezier) forwards;
+          transform-origin: 0 0;
+
+
+          @keyframes squeezeLine {
+            0% {
+              transform: scale(1);
+            }
+
+            100% {
+              transform: scale(1, 2)
+            }
+          }
+        }
+
+        line:nth-child(4) {
+          animation: squeezeLine2 .3s var(--bezier) forwards;
+          transform-origin: 100% 100%;
+
+
+          @keyframes squeezeLine2 {
+            0% {
+              transform: scale(1)
+            }
+
+            100% {
+              transform: scale(1, .5)
+            }
+          }
+        }
+
+        line:nth-child(5) {
+          animation: squeezeLine3 .3s var(--bezier) forwards;
+          transform-origin: 0% 0%;
+
+
+          @keyframes squeezeLine3 {
+            0% {
+              transform: scale(1)
+            }
+
+            100% {
+              transform: scale(1, .75)
+            }
+          }
+        }
+
+        line:nth-child(6) {
+          animation: squeezeLine4 .3s var(--bezier) forwards;
+          transform-origin: 100% 100%;
+
+
+          @keyframes squeezeLine4 {
+            0% {
+              transform: scale(1)
+            }
+
+            100% {
+              transform: scale(1, 1.5)
+            }
+          }
+        }
+
+        rect:nth-child(1),
+        rect:nth-child(7) {
+          animation: bumpCandle .3s var(--bezier) forwards;
+
+          @keyframes bumpCandle {
+            0% {
+              transform: translateY(0);
+            }
+
+            100% {
+              transform: translateY(25%);
+            }
+          }
+        }
+
+        rect:nth-child(2),
+        rect:nth-child(8) {
+          animation: bumpCandle2 .3s var(--bezier) forwards;
+
+          @keyframes bumpCandle2 {
+            0% {
+              transform: translateY(0);
+            }
+
+            100% {
+              transform: translateY(-25%);
+            }
+          }
+        }
+      }
+    }
   }
 
   &__activity-section {
@@ -332,76 +508,5 @@
   &__status-value {
     font-size: var(--font-size-s);
     opacity: 0.7;
-  }
-}
-
-/* Reveal and pop-in animations for Dashboard */
-@keyframes dash-pop-in {
-  from { opacity: 0; transform: translateY(12px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes dash-slide-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes dash-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Base state for animated elements */
-.dashboard [data-animate] {
-  opacity: 0;
-  transform: translateY(12px) scale(.98);
-}
-
-/* On initial load, pop elements with a stagger */
-.dashboard--loaded .dashboard__stats-grid .dashboard__stat-card,
-.dashboard--loaded .dashboard__actions-grid .dashboard__action-card,
-.dashboard--loaded .dashboard__recent-list .dashboard__recent-item,
-.dashboard--loaded .dashboard__status-grid .dashboard__status-item {
-  animation: dash-pop-in .6s var(--bezier) both;
-}
-.dashboard--loaded .dashboard__stats-grid .dashboard__stat-card:nth-child(1) { animation-delay: .05s; }
-.dashboard--loaded .dashboard__stats-grid .dashboard__stat-card:nth-child(2) { animation-delay: .10s; }
-.dashboard--loaded .dashboard__stats-grid .dashboard__stat-card:nth-child(3) { animation-delay: .15s; }
-.dashboard--loaded .dashboard__stats-grid .dashboard__stat-card:nth-child(4) { animation-delay: .20s; }
-.dashboard--loaded .dashboard__actions-grid .dashboard__action-card:nth-child(1) { animation-delay: .05s; }
-.dashboard--loaded .dashboard__actions-grid .dashboard__action-card:nth-child(2) { animation-delay: .10s; }
-.dashboard--loaded .dashboard__actions-grid .dashboard__action-card:nth-child(3) { animation-delay: .15s; }
-.dashboard--loaded .dashboard__actions-grid .dashboard__action-card:nth-child(4) { animation-delay: .20s; }
-
-/* When element scrolls into view (via IO), ensure visible */
-.dashboard [data-animate].in-view {
-  animation: dash-pop-in .6s var(--bezier) both;
-}
-.dashboard [data-animate="slide"].in-view { animation-name: dash-slide-up; }
-.dashboard [data-animate="fade"].in-view { animation-name: dash-fade-in; }
-
-/* Native Scroll/ View Timelines (progressive enhancement) */
-@supports (animation-timeline: --reveal) {
-  .dashboard [data-animate] {
-    view-timeline-name: --reveal;
-    view-timeline-axis: block;
-    animation-timeline: --reveal;
-    animation-name: dash-pop-in;
-    animation-range: entry 0% cover 35%;
-    animation-fill-mode: both;
-    opacity: 1; /* ensure timeline controls opacity */
-    transform: none;
-  }
-  .dashboard [data-animate="slide"] { animation-name: dash-slide-up; }
-  .dashboard [data-animate="fade"] { animation-name: dash-fade-in; }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
   }
 }

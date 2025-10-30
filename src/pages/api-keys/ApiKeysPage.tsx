@@ -4,6 +4,7 @@ import { Button } from "@/components/Button";
 import { Colors, Size } from "@/types";
 import { ApiKeyForm, ApiKeyList } from "@/components/ApiKeys";
 import { Modal } from "@/components/Modal/Modal";
+import { CopyButton } from "@/components/CopyButton";
 import { useBemm } from "@/utils/bemm";
 import type { ApiKey } from "@/types/apikey";
 import "./ApiKeysPage.scss";
@@ -50,12 +51,17 @@ export const ApiKeysPage: React.FC = () => {
   return (
     <div className={bemm()}>
       <PageHeader
-        title={t('app.apiKeysCardTitle')}
-        description={t('apiKeys.description')}
+        title={t("app.apiKeysCardTitle")}
+        description={t("apiKeys.description")}
         image="/keys.png"
         actions={
-          <Button size={Size.MEDIUM} color={Colors.PRIMARY} icon="plus" onClick={handleAddKey}>
-            {t('app.addKey')}
+          <Button
+            size={Size.MEDIUM}
+            color={Colors.PRIMARY}
+            icon="plus"
+            onClick={handleAddKey}
+          >
+            {t("app.addKey")}
           </Button>
         }
       />
@@ -68,11 +74,14 @@ export const ApiKeysPage: React.FC = () => {
       <Modal
         open={isModalOpen}
         onClose={handleModalClose}
-        title={editing ? t('modal.editTitle') : t('modal.createTitle')}
+        title={editing ? t("modal.editTitle") : t("modal.createTitle")}
       >
         <ApiKeyForm
           initialKey={editing}
-          onSaved={(k) => { handleModalClose(); if (!editing) setRevealKey(k.key); }}
+          onSaved={(k) => {
+            handleModalClose();
+            if (!editing) setRevealKey(k.key);
+          }}
           onCancel={handleModalClose}
         />
       </Modal>
@@ -80,18 +89,24 @@ export const ApiKeysPage: React.FC = () => {
       <Modal
         open={!!revealKey}
         onClose={() => setRevealKey(null)}
-        title={t('modal.revealTitle', { defaultValue: 'Your new API key' })}
+        title={t("modal.revealTitle", { defaultValue: "Your new API key" })}
       >
-        <p>{t('modal.revealDesc', { defaultValue: 'This key is only shown once. Please store it securely now.' })}</p>
+        <p>
+          {t("modal.revealDesc")}
+        </p>
         {revealKey && (
-          <div style={{ display: 'grid', gap: 'var(--space-s)' }}>
-            <code style={{ fontSize: '1.1rem', wordBreak: 'break-all' }}>{revealKey}</code>
-            <Button size={Size.SMALL} color={Colors.PRIMARY} onClick={() => { navigator.clipboard.writeText(revealKey); }}>
-              {t('btn.copy')}
-            </Button>
-            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <div style={{ display: "grid", gap: "var(--space-s)" }}>
+            <code style={{ fontSize: "1.1rem", wordBreak: "break-all" }}>
+              {revealKey}
+            </code>
+            <CopyButton
+              text={revealKey}
+              size={Size.SMALL}
+              color={Colors.PRIMARY}
+            />
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <Button size={Size.SMALL} onClick={() => setRevealKey(null)}>
-                {t('btn.dismiss')}
+                {t("btn.dismiss")}
               </Button>
             </div>
           </div>

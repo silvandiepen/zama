@@ -24,7 +24,7 @@ const iconMap: Record<string, string> = {
   'minus': 'subtract-m',
   'search': 'search-m',
   'user': 'user',
-  'mail': 'mail',
+  'mail': 'arrow-up',
   'phone': 'phone',
   'lock': 'lock',
   'unlock': 'unlock',

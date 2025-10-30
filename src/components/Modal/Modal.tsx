@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { useBemm } from "@/utils/bemm";
 import "./modal.scss";
 import { Button } from "../Button";
@@ -54,7 +55,7 @@ export const Modal: React.FC<ModalProps> = ({ open, title, onClose, children, fo
 
   if (!open) return null;
   
-  return (
+  const modalContent = (
     <div 
       ref={modalRef}
       className={bemm("overlay")} 
@@ -76,4 +77,6 @@ export const Modal: React.FC<ModalProps> = ({ open, title, onClose, children, fo
       </div>
     </div>
   );
+  
+  return createPortal(modalContent, document.body);
 };

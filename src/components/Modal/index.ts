@@ -1,3 +1,2 @@
-import type { ModalProps } from './modal.model';
-export { Modal } from './modal';
+export { Modal } from './Modal';
 export type { ModalProps } from './modal.model';

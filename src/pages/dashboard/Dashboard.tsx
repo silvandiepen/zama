@@ -10,7 +10,7 @@ import { useTheme } from "@/store/theme";
 import { useBemm } from "@/utils/bemm";
 import { getKeyStats, type KeyStats } from "@/services/mockStats";
 import { Bar24h } from "@/components/Charts/Bar24h";
-import "./dashboard.scss";
+import "./Dashboard.scss";
 import { PageHeader } from "@/components/PageHeader/PageHeader";
 import { Icons } from "open-icon";
 

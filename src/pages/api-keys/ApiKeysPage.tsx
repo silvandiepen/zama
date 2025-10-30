@@ -4,10 +4,7 @@ import { Button } from "@/components/Button";
 import { Colors, Size } from "@/types";
 import { ApiKeyForm, ApiKeyList } from "@/components/ApiKeys";
 import { Modal } from "@/components/Modal/Modal";
-<<<<<<< HEAD
 import { CopyButton } from "@/components/CopyButton";
-=======
->>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b
 import { useBemm } from "@/utils/bemm";
 import type { ApiKey } from "@/types/apikey";
 import "./ApiKeysPage.scss";
@@ -54,7 +51,6 @@ export const ApiKeysPage: React.FC = () => {
   return (
     <div className={bemm()}>
       <PageHeader
-<<<<<<< HEAD
         title={t("app.apiKeysCardTitle")}
         description={t("apiKeys.description")}
         image="/keys.png"
@@ -66,14 +62,6 @@ export const ApiKeysPage: React.FC = () => {
             onClick={handleAddKey}
           >
             {t("app.addKey")}
-=======
-        title={t('app.apiKeysCardTitle')}
-        description={t('apiKeys.description')}
-        image="/keys.png"
-        actions={
-          <Button size={Size.MEDIUM} color={Colors.PRIMARY} icon="plus" onClick={handleAddKey}>
-            {t('app.addKey')}
->>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b
           </Button>
         }
       />
@@ -86,7 +74,6 @@ export const ApiKeysPage: React.FC = () => {
       <Modal
         open={isModalOpen}
         onClose={handleModalClose}
-<<<<<<< HEAD
         title={editing ? t("modal.editTitle") : t("modal.createTitle")}
       >
         <ApiKeyForm
@@ -95,13 +82,6 @@ export const ApiKeysPage: React.FC = () => {
             handleModalClose();
             if (!editing) setRevealKey(k.key);
           }}
-=======
-        title={editing ? t('modal.editTitle') : t('modal.createTitle')}
-      >
-        <ApiKeyForm
-          initialKey={editing}
-          onSaved={(k) => { handleModalClose(); if (!editing) setRevealKey(k.key); }}
->>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b
           onCancel={handleModalClose}
         />
       </Modal>
@@ -109,7 +89,6 @@ export const ApiKeysPage: React.FC = () => {
       <Modal
         open={!!revealKey}
         onClose={() => setRevealKey(null)}
-<<<<<<< HEAD
         title={t("modal.revealTitle", { defaultValue: "Your new API key" })}
       >
         <p>
@@ -128,20 +107,6 @@ export const ApiKeysPage: React.FC = () => {
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <Button size={Size.SMALL} onClick={() => setRevealKey(null)}>
                 {t("btn.dismiss")}
-=======
-        title={t('modal.revealTitle', { defaultValue: 'Your new API key' })}
-      >
-        <p>{t('modal.revealDesc', { defaultValue: 'This key is only shown once. Please store it securely now.' })}</p>
-        {revealKey && (
-          <div style={{ display: 'grid', gap: 'var(--space-s)' }}>
-            <code style={{ fontSize: '1.1rem', wordBreak: 'break-all' }}>{revealKey}</code>
-            <Button size={Size.SMALL} color={Colors.PRIMARY} onClick={() => { navigator.clipboard.writeText(revealKey); }}>
-              {t('btn.copy')}
-            </Button>
-            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <Button size={Size.SMALL} onClick={() => setRevealKey(null)}>
-                {t('btn.dismiss')}
->>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b
               </Button>
             </div>
           </div>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Zama Console
 
 Deployed demo: https://zama.sil.mt
@@ -13,7 +12,6 @@ Prereqs: Node 18+ and npm.
 npm install
 npm run dev
 # open http://localhost:5173
-=======
 # Sandbox Console (React + TypeScript + Vite)
 
 Deployed demo: <YOUR_URL_HERE>
@@ -28,13 +26,11 @@ Prereqs: Node 18+ and pnpm/npm.
 pnpm install
 pnpm dev
 # open http://localhost:5174
->>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b
 ```
 
 Build:
 
 ```bash
-<<<<<<< HEAD
 npm run build && npm run preview
 ```
 
@@ -45,7 +41,6 @@ Local mock session stored in `localStorage` with a 24h expiry. Protected routes 
 **Why**: Keeps the scope focused and deterministic without external providers or serverless setup, while still demonstrating route protection and session expiry.
 
 ## Feature Flags
-=======
 pnpm build && pnpm preview
 ```
 
@@ -56,14 +51,12 @@ Option C: Local mock session stored in `localStorage` with a 24h expiry. Protect
 Why: Keeps the scope focused and deterministic without external providers or serverless setup, while still demonstrating route protection and session expiry.
 
 ## Feature flag
->>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b
 
 Open the Dev panel (floating code button) to toggle features:
 
 - Color mode switch visibility (+ default theme when disabled)
 - User menu visibility
 - Various UI/keys flags (copy, revoke, descriptions)
-<<<<<<< HEAD
 - Language switcher functionality
 - Tooltips and other UI enhancements
 
@@ -112,7 +105,6 @@ Full internationalization support with:
 - Usage chart visibility with data validation
 - Empty state handling for keys list
 - Responsive design testing
-=======
 
 This demonstrates a practical feature flag rollout pattern for UI features.
 
@@ -145,12 +137,10 @@ Playwright E2E (scaffolded) covering:
 - Feature flag toggles the UI (hides user menu)
 - Usage chart visible with data
 - Empty state for keys
->>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b
 
 Run E2E locally:
 
 ```bash
-<<<<<<< HEAD
 npx playwright install
 npm run test:e2e
 ```
@@ -252,7 +242,6 @@ No environment variables are required for development. See `.env.example` for av
 - Edge 90+
 
 Modern CSS features are enhanced with polyfills for broader compatibility.
-=======
 pnpm dlx playwright install
 pnpm exec playwright test
 ```
@@ -283,4 +272,3 @@ AI coding assistance: Used occasionally to accelerate boilerplate and spot edge 
 ## .env
 
 No environment variables are required. See `.env.example` for shape.
->>>>>>> ed5c1c21234bc45c5f84973d4ae88c93976e8c0b

@@ -164,7 +164,7 @@
   "list": {
     "loading": "Chargement des clés…",
     "empty": "Aucune clé API pour l’instant.",
-    "created": "Créée :",
+    "emptyDescription": "Créez votre première clé API pour commencer à utiliser le service.",    "created": "Créée :",
     "revoked": "Révoquée :"
   },
   "btn": {

@@ -164,6 +164,7 @@
   "list": {
     "loading": "Sleutels laden…",
     "empty": "Nog geen API-sleutels.",
+    "emptyDescription": "Maak uw eerste API-sleutel om de service te gebruiken.",
     "created": "Aangemaakt:",
     "revoked": "Ingetrokken:"
   },

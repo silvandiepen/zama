@@ -175,6 +175,7 @@
   "list": {
     "loading": "Loading keys…",
     "empty": "No API keys yet.",
+    "emptyDescription": "Create your first API key to start using the service.",
     "created": "Created:",
     "revoked": "Revoked:",
     "onlyAtCreation": "Only visible at creation"
